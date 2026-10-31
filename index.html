@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- SEO (English by default; updated dynamically when switching language) -->
+  <title>Random Wheel Generator | Spin the Wheel Decision Maker</title>
+  <meta id="metaDesc" name="description" content="Free spin-the-wheel decision maker. Add your options, spin and get a random winner — perfect for giveaways, classrooms, games and quick choices. No sign-up." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="keywords" content="random wheel, spin the wheel, wheel spinner, random picker, decision maker, random name picker, giveaway wheel" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta id="ogTitle" property="og:title" content="Random Wheel Generator | Spin the Wheel Decision Maker" />
+  <meta id="ogDesc" property="og:description" content="Free spin-the-wheel decision maker. Add your options, spin and get a random winner. No sign-up." />
+  <meta id="ogLocale" property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_MX" />
+  <meta name="twitter:card" content="summary" />
+
+  <!--
+    When you have your domain, uncomment and replace https://www.yourdomain.com/ :
+    <link rel="canonical" href="https://www.yourdomain.com/" />
+    <link rel="alternate" hreflang="en" href="https://www.yourdomain.com/" />
+    <link rel="alternate" hreflang="es" href="https://www.yourdomain.com/?lang=es" />
+    <link rel="alternate" hreflang="x-default" href="https://www.yourdomain.com/" />
+    <meta property="og:url" content="https://www.yourdomain.com/" />
+  -->
+
+  <!-- Google AdSense: paste your AdSense <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> right below this line -->
+
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0E1129" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 16V2a14 14 0 0 1 14 14z' fill='%23D9F6E3'/%3E%3Cpath d='M16 16h14a14 14 0 0 1-14 14z' fill='%23FCE6EF'/%3E%3Cpath d='M16 16v14A14 14 0 0 1 2 16z' fill='%23FEF1DA'/%3E%3Cpath d='M16 16H2A14 14 0 0 1 16 2z' fill='%23ECE5FA'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%2316A34A'/%3E%3C/svg%3E" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Random Wheel Generator",
+    "description": "Free spin-the-wheel decision maker. Add your options, spin and get a random winner.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "inLanguage": ["en", "es"],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Is the wheel really random?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The winner is chosen with your browser's cryptographically secure random generator before the animation starts, so every option has exactly the same chance." } },
+      { "@type": "Question", "name": "Is it free? Do I need an account?", "acceptedAnswer": { "@type": "Answer", "text": "It's completely free and works right in your browser. No sign-up, no downloads." } },
+      { "@type": "Question", "name": "Where are my options saved?", "acceptedAnswer": { "@type": "Answer", "text": "Only in your own browser (local storage). Nothing you type is uploaded to a server, and you can clear it anytime with Clear all." } },
+      { "@type": "Question", "name": "Can I use it for giveaways and raffles?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. After each spin, choose Remove winner so the same name can't win twice. If you run an official giveaway, make sure it follows the rules where you live." } },
+      { "@type": "Question", "name": "How many options can I add?", "acceptedAnswer": { "@type": "Answer", "text": "Up to 100 options of up to 60 characters each. The slices and text resize automatically." } }
+    ]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'media',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Nunito', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+            display: ['Poppins', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            ink:    { 50: '#F7F8FC', 100: '#EEF0F7', 200: '#DDE0EC', 300: '#B9BDD3', 400: '#8A8FAE', 500: '#5B6185', 700: '#2B3160', 900: '#151A3D' },
+            matcha: { 50: '#EFFBF3', 100: '#D9F6E3', 200: '#AEEBC4', 400: '#2FC266', 500: '#16A34A', 600: '#128A3E', 700: '#0F6E33' },
+            night:  { 700: '#262B52', 800: '#1B1F42', 850: '#161A38', 900: '#0E1129' },
+          },
+          boxShadow: {
+            card: '0 1px 2px rgba(21,26,61,.04), 0 20px 60px -24px rgba(21,26,61,.16)',
+            btn:  '0 10px 24px -10px rgba(22,163,74,.6)',
+            hub:  '0 6px 20px -4px rgba(21,26,61,.25)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Canvas colors (light / dark) */
+    :root {
+      --wheel-edge: #E7EAF4;
+      --wheel-sep: #FFFFFF;
+      --wheel-text: rgba(43, 49, 96, .42);
+      --wheel-dim: rgba(255, 255, 255, .62);
+      --wheel-empty: #F3F5FA;
+      --wheel-empty-text: #8A8FAE;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --wheel-edge: #262B52;
+        --wheel-sep: #161A38;
+        --wheel-text: rgba(21, 26, 61, .5);
+        --wheel-dim: rgba(14, 17, 41, .6);
+        --wheel-empty: #1B1F42;
+        --wheel-empty-text: #5B6185;
+      }
+    }
+
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body { -webkit-tap-highlight-color: transparent; }
+    button { touch-action: manipulation; }
+
+    .halo { text-shadow: 0 0 2px #fff, 0 0 10px #fff, 0 0 18px #fff; }
+    @media (prefers-color-scheme: dark) {
+      .halo { text-shadow: 0 0 2px #0E1129, 0 0 10px #0E1129, 0 0 18px rgba(14,17,41,.8); }
+    }
+
+    .pointer-tri { filter: drop-shadow(0 -2px 3px rgba(21, 26, 61, .12)); }
+
+    @keyframes bob { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-3px, -5px); } }
+    .bob { animation: bob 1.6s ease-in-out infinite; }
+
+    .scroll-slim { scrollbar-width: thin; scrollbar-color: #DDE0EC transparent; }
+    .scroll-slim::-webkit-scrollbar { width: 6px; }
+    .scroll-slim::-webkit-scrollbar-thumb { background: #DDE0EC; border-radius: 999px; }
+    @media (prefers-color-scheme: dark) {
+      .scroll-slim { scrollbar-color: #262B52 transparent; }
+      .scroll-slim::-webkit-scrollbar-thumb { background: #262B52; }
+    }
+
+    /* Modals */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes popIn { from { opacity: 0; transform: translateY(18px) scale(.94); } to { opacity: 1; transform: none; } }
+    @keyframes badgeIn { 0% { transform: scale(.3) rotate(-25deg); } 60% { transform: scale(1.12) rotate(6deg); } 100% { transform: none; } }
+    .modal-open .modal-backdrop { animation: fadeIn .25s ease both; }
+    .modal-open .modal-card     { animation: popIn .5s cubic-bezier(.2, 1.2, .3, 1) both; }
+    .modal-open .winner-badge   { animation: badgeIn .7s .08s cubic-bezier(.2, 1.4, .4, 1) both; }
+
+    /* AdSense slots: hidden while empty, shown with a small label once the ad code is pasted */
+    .ad-slot { display: block; width: 100%; max-width: 970px; margin-left: auto; margin-right: auto; text-align: center; }
+    .ad-slot:empty { display: none; }
+    .ad-slot:not(:empty) { min-height: 100px; }
+    .ad-slot::before {
+      content: attr(data-label);
+      display: block; margin-bottom: 6px;
+      font: 700 10px/1 Nunito, system-ui, sans-serif; letter-spacing: .14em; text-transform: uppercase;
+      color: #B9BDD3;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-white font-sans text-ink-900 antialiased dark:bg-night-900 dark:text-ink-100">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 border-b border-ink-100 bg-white/85 backdrop-blur-md dark:border-night-700 dark:bg-night-900/85">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
+      <a href="#" class="flex shrink-0 items-center gap-2.5" aria-label="Home" data-i18n-aria="home">
+        <svg viewBox="0 0 32 32" class="h-8 w-8" aria-hidden="true">
+          <path d="M16 16V2a14 14 0 0 1 14 14z" fill="#ECE5FA" />
+          <path d="M16 16h14a14 14 0 0 1-14 14z" fill="#FEF1DA" />
+          <path d="M16 16v14A14 14 0 0 1 2 16z" fill="#DDF4EA" />
+          <path d="M16 16H2A14 14 0 0 1 16 2z" fill="#E6EEFC" />
+          <circle cx="16" cy="16" r="14" fill="none" stroke="#DDE0EC" stroke-width="1.5" />
+          <circle cx="16" cy="16" r="5" fill="#16A34A" />
+        </svg>
+        <span class="font-display text-xl font-extrabold tracking-tight">giro<span class="text-matcha-500 dark:text-matcha-400">.</span></span>
+      </a>
+
+      <div class="flex items-center gap-1.5 sm:gap-3">
+        <!-- Language switch -->
+        <div role="group" aria-label="Language" data-i18n-aria="langGroup"
+          class="inline-flex items-center rounded-full border border-ink-100 bg-ink-50 p-1 text-xs font-bold dark:border-night-700 dark:bg-night-800">
+          <button type="button" data-lang-btn="en" aria-pressed="true" title="English"
+            class="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-ink-400 transition hover:text-ink-700 aria-pressed:bg-white aria-pressed:text-ink-900 aria-pressed:shadow-sm dark:hover:text-ink-200 dark:aria-pressed:bg-night-700 dark:aria-pressed:text-white">
+            <span aria-hidden="true">🇺🇸</span>EN
+          </button>
+          <button type="button" data-lang-btn="es" aria-pressed="false" title="Español"
+            class="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-ink-400 transition hover:text-ink-700 aria-pressed:bg-white aria-pressed:text-ink-900 aria-pressed:shadow-sm dark:hover:text-ink-200 dark:aria-pressed:bg-night-700 dark:aria-pressed:text-white">
+            <span aria-hidden="true">🇲🇽</span>ES
+          </button>
+        </div>
+
+        <!-- Sound switch -->
+        <button id="soundToggle" type="button" role="switch" aria-checked="true" aria-label="Spin sound" data-i18n-aria="soundAria"
+          class="group inline-flex items-center gap-2.5 rounded-full py-1.5 pl-2 pr-1.5 text-sm font-semibold text-ink-700 transition hover:bg-ink-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-matcha-100 dark:text-ink-200 dark:hover:bg-night-800 dark:focus-visible:ring-matcha-700/40 sm:pl-3">
+          <i data-icon="volume-x" class="h-[18px] w-[18px] group-aria-checked:hidden"></i>
+          <i data-icon="volume" class="hidden h-[18px] w-[18px] group-aria-checked:block"></i>
+          <span class="hidden sm:inline" data-i18n="sound">Sound</span>
+          <span class="relative h-6 w-10 rounded-full bg-ink-200 transition-colors group-aria-checked:bg-matcha-500 dark:bg-night-700">
+            <span class="absolute left-1 top-1 h-4 w-4 rounded-full bg-white shadow transition-transform group-aria-checked:translate-x-4"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-4 pb-14 sm:px-6">
+    <!-- Hero -->
+    <section class="pt-10 text-center sm:pt-14">
+      <h1 class="font-display text-[2.1rem] font-extrabold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+        <span data-i18n="heroA">Random Wheel:</span><br />
+        <span class="text-matcha-500 dark:text-matcha-400" data-i18n="heroB">Spin, pick &amp; decide</span>
+      </h1>
+      <p class="mx-auto mt-4 max-w-xl text-base text-ink-500 dark:text-ink-300 sm:text-lg" data-i18n="heroSub">
+        Add your options, spin the wheel and let chance choose for you.
+      </p>
+    </section>
+
+    <!-- AdSense Banner Top -->
+    <div id="ad-top" class="ad-slot mt-8" data-label="Advertisement" data-i18n-label="adLabel"><!-- Paste your AdSense <ins class="adsbygoogle"> code for the TOP banner here --></div>
+
+    <!-- Main card -->
+    <section class="mt-10 grid items-start gap-10 rounded-[32px] border border-ink-100 bg-white p-5 shadow-card dark:border-night-700 dark:bg-night-850 sm:mt-14 sm:p-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-12 lg:p-12">
+
+      <!-- Wheel -->
+      <div class="flex flex-col items-center">
+        <div id="wheelWrap" class="relative aspect-square w-full max-w-[540px] cursor-pointer select-none" aria-label="Wheel — click to spin" data-i18n-aria="wheelAria">
+          <canvas id="wheel" class="block h-full w-full" role="img" aria-label="Wheel"></canvas>
+
+          <!-- Center: pointer + button -->
+          <div class="absolute left-1/2 top-1/2 z-10 w-[13%] min-w-[54px] -translate-x-1/2 -translate-y-1/2">
+            <div id="pointer" class="pointer-events-none absolute bottom-[78%] left-1/2 w-[46%] -translate-x-1/2" style="transform-origin: 50% 100%">
+              <svg viewBox="0 0 24 22" class="pointer-tri block h-auto w-full" aria-hidden="true">
+                <path d="M12 1.5c.6 0 1.1.3 1.4.8l9 16.6c.6 1.1-.2 2.4-1.4 2.4H3c-1.2 0-2-1.3-1.4-2.4l9-16.6c.3-.5.8-.8 1.4-.8z" fill="#fff" />
+              </svg>
+            </div>
+            <button id="hubBtn" type="button" aria-label="Spin the wheel" data-i18n-aria="spin"
+              class="relative grid aspect-square w-full place-items-center rounded-full bg-white text-ink-400 shadow-hub transition hover:scale-105 hover:text-matcha-500 active:scale-95 disabled:cursor-default disabled:hover:scale-100 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-matcha-200">
+              <i data-icon="play" class="ml-[8%] h-[38%] w-[38%]" data-fill="1"></i>
+            </button>
+          </div>
+
+          <!-- "Click to spin" hint -->
+          <div id="hint" class="pointer-events-none absolute inset-x-0 top-[55%] z-10 flex flex-col items-center transition-opacity duration-300">
+            <i data-icon="hand" class="bob -mt-[3%] mb-1 ml-[6%] h-7 w-7 text-ink-900 dark:text-white sm:h-8 sm:w-8"></i>
+            <span id="hintText" class="halo font-display text-xl font-extrabold tracking-tight text-ink-900 dark:text-white sm:text-[1.7rem]">Click to spin</span>
+          </div>
+        </div>
+
+        <button id="spinBtn" type="button"
+          class="mt-8 inline-flex w-full max-w-xs items-center justify-center gap-2.5 rounded-full bg-matcha-500 px-9 py-4 font-display text-base font-bold text-white shadow-btn transition hover:-translate-y-0.5 hover:bg-matcha-600 active:translate-y-0 active:scale-[.98] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:bg-matcha-500 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-matcha-200 dark:focus-visible:ring-matcha-700/50 sm:w-auto">
+          <span id="spinIcon" class="grid place-items-center"><i data-icon="rotate" class="h-5 w-5"></i></span>
+          <span id="spinLabel">Spin the Wheel</span>
+        </button>
+        <p class="mt-3 hidden text-sm text-ink-400 sm:block">
+          <span data-i18n="orPress">or press</span>
+          <kbd class="rounded-md border border-ink-200 bg-ink-50 px-1.5 py-0.5 font-sans text-xs font-semibold text-ink-500 dark:border-night-700 dark:bg-night-800 dark:text-ink-300" data-i18n="space">Space</kbd>
+        </p>
+
+        <!-- History -->
+        <div id="historyWrap" class="mt-8 hidden w-full max-w-[540px] rounded-2xl bg-ink-50 p-4 dark:bg-night-800">
+          <div class="flex items-center justify-between">
+            <p class="flex items-center gap-2 text-sm font-bold text-ink-700 dark:text-ink-200">
+              <i data-icon="history" class="h-4 w-4 text-ink-400"></i> <span data-i18n="recent">Recent results</span>
+            </p>
+            <button id="clearHistory" type="button" class="rounded-md px-1.5 text-sm font-semibold text-ink-400 transition hover:text-matcha-500" data-i18n="clearHistory">Clear</button>
+          </div>
+          <div id="history" class="mt-3 flex flex-wrap gap-2"></div>
+        </div>
+      </div>
+
+      <!-- Options -->
+      <fieldset id="panel" class="min-w-0 transition-opacity disabled:opacity-60">
+        <h2 class="font-display text-2xl font-extrabold tracking-tight sm:text-[1.7rem]" data-i18n="options">Options</h2>
+        <p class="mt-1.5 text-base text-ink-500 dark:text-ink-300" data-i18n="optionsHelp">
+          Type the options you want to pick from at random, one per line.
+        </p>
+
+        <div class="relative mt-5">
+          <textarea id="bulk" rows="9" spellcheck="false" placeholder="Option 1&#10;Option 2&#10;Option 3" aria-label="Options, one per line" data-i18n-ph="placeholder" data-i18n-aria="textareaAria"
+            class="scroll-slim block h-[280px] w-full resize-y rounded-[22px] border-2 border-ink-200 bg-white px-6 py-4 text-[1.05rem] font-medium leading-[1.85] text-ink-900 placeholder:text-ink-300 transition focus:border-matcha-400 focus:outline-none focus:ring-4 focus:ring-matcha-100 dark:border-night-700 dark:bg-night-900 dark:text-ink-100 dark:placeholder:text-ink-500 dark:focus:border-matcha-500 dark:focus:ring-matcha-700/30 sm:h-[320px]"></textarea>
+        </div>
+        <div class="mt-2.5 flex items-center justify-between px-1 text-sm">
+          <span id="count" class="font-bold text-matcha-500 dark:text-matcha-400">0 options</span>
+          <span class="text-ink-400" data-i18n="autosave">Saved automatically</span>
+        </div>
+
+        <!-- Actions -->
+        <div class="mt-6 grid grid-cols-3 gap-2">
+          <button id="shuffleBtn" type="button" class="action-btn">
+            <i data-icon="shuffle" class="h-[18px] w-[18px]"></i><span data-i18n="shuffle">Shuffle</span>
+          </button>
+          <button id="sortBtn" type="button" class="action-btn">
+            <i data-icon="sort" class="h-[18px] w-[18px]"></i><span data-i18n="sort">Sort</span>
+          </button>
+          <button id="clearBtn" type="button" class="action-btn action-danger">
+            <i data-icon="trash" class="h-[18px] w-[18px]"></i><span data-i18n="clearAll">Clear all</span>
+          </button>
+        </div>
+
+        <!-- Templates -->
+        <p class="mt-7 text-sm font-bold text-ink-700 dark:text-ink-200" data-i18n="templates">Quick templates</p>
+        <div id="templates" class="mt-3 grid grid-cols-2 gap-2.5"></div>
+      </fieldset>
+    </section>
+
+    <!-- How to use -->
+    <section id="how" class="pt-20 sm:pt-28" aria-labelledby="howTitle">
+      <h2 id="howTitle" class="text-center font-display text-[1.75rem] font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-[2.6rem]" data-i18n="howTitle">
+        How to use the random wheel
+      </h2>
+      <p class="mx-auto mt-3 max-w-lg text-center text-base text-ink-500 dark:text-ink-300" data-i18n="howSub">
+        Three steps and you’re done. No sign-up, no downloads.
+      </p>
+
+      <div class="mt-10 grid gap-5 sm:mt-14 md:grid-cols-3 md:gap-8">
+        <article class="step-card">
+          <span class="step-num">1</span>
+          <h3 class="step-title" data-i18n="step1t">Add your options</h3>
+          <p class="step-text" data-i18n="step1d">Type one option per line or pick a quick template. Great for games, giveaways, classroom picks or everyday decisions.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-num">2</span>
+          <h3 class="step-title" data-i18n="step2t">Spin the wheel</h3>
+          <p class="step-text" data-i18n="step2d">Tap the wheel, the “Spin” button or your Space bar, and watch it slow down until it lands on a random pick.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-num">3</span>
+          <h3 class="step-title" data-i18n="step3t">Celebrate &amp; repeat</h3>
+          <p class="step-text" data-i18n="step3d">Spin as many times as you like, or remove the winner for no-repeat drawings. Your list is saved for next time.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="mx-auto max-w-3xl pt-20 sm:pt-28" aria-labelledby="faqTitle">
+      <h2 id="faqTitle" class="text-center font-display text-[1.75rem] font-extrabold leading-tight tracking-tight sm:text-4xl" data-i18n="faqTitle">
+        Frequently asked questions
+      </h2>
+      <div class="mt-10 space-y-3">
+        <details class="faq-item group">
+          <summary class="faq-q"><span data-i18n="faq1q">Is the wheel really random?</span><i data-icon="chevron" class="faq-chev"></i></summary>
+          <p class="faq-a" data-i18n="faq1a">Yes. The winner is chosen with your browser’s cryptographically secure random generator before the animation starts, so every option has exactly the same chance.</p>
+        </details>
+        <details class="faq-item group">
+          <summary class="faq-q"><span data-i18n="faq2q">Is it free? Do I need an account?</span><i data-icon="chevron" class="faq-chev"></i></summary>
+          <p class="faq-a" data-i18n="faq2a">It’s completely free and works right in your browser. No sign-up, no downloads.</p>
+        </details>
+        <details class="faq-item group">
+          <summary class="faq-q"><span data-i18n="faq3q">Where are my options saved?</span><i data-icon="chevron" class="faq-chev"></i></summary>
+          <p class="faq-a" data-i18n="faq3a">Only in your own browser (local storage). Nothing you type is uploaded to a server, and you can clear it anytime with “Clear all”.</p>
+        </details>
+        <details class="faq-item group">
+          <summary class="faq-q"><span data-i18n="faq4q">Can I use it for giveaways and raffles?</span><i data-icon="chevron" class="faq-chev"></i></summary>
+          <p class="faq-a" data-i18n="faq4a">Yes. After each spin, choose “Remove winner” so the same name can’t win twice. If you run an official giveaway, make sure it follows the rules where you live.</p>
+        </details>
+        <details class="faq-item group">
+          <summary class="faq-q"><span data-i18n="faq5q">How many options can I add?</span><i data-icon="chevron" class="faq-chev"></i></summary>
+          <p class="faq-a" data-i18n="faq5a">Up to 100 options of up to 60 characters each. The slices and text resize automatically.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- AdSense Banner Bottom -->
+    <div id="ad-bottom" class="ad-slot mt-16" data-label="Advertisement" data-i18n-label="adLabel"><!-- Paste your AdSense <ins class="adsbygoogle"> code for the BOTTOM banner here --></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-ink-100 py-8 dark:border-night-700">
+    <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 text-center text-sm text-ink-400 sm:flex-row sm:justify-between sm:px-6 sm:text-left">
+      <p>© <span id="year">2026</span> giro. · <span data-i18n="footerNote">Your options are saved only in this browser.</span></p>
+      <nav aria-label="Legal" data-i18n-aria="legalNav" class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-semibold">
+        <a href="#privacy" class="transition hover:text-matcha-600 dark:hover:text-matcha-400" data-i18n="privacy">Privacy Policy</a>
+        <a href="#terms" class="transition hover:text-matcha-600 dark:hover:text-matcha-400" data-i18n="terms">Terms of Service</a>
+        <a href="mailto:hello@yourdomain.com" class="transition hover:text-matcha-600 dark:hover:text-matcha-400" data-i18n="contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Winner modal -->
+  <div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="winnerTitle">
+    <div data-close class="modal-backdrop absolute inset-0 bg-ink-900/35 backdrop-blur-sm dark:bg-black/60"></div>
+    <div class="modal-card relative w-full max-w-sm rounded-[32px] bg-white px-6 pb-6 pt-8 text-center shadow-2xl dark:bg-night-850 sm:px-8 sm:pb-8">
+      <button data-close type="button" aria-label="Close" data-i18n-aria="close"
+        class="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full text-ink-400 transition hover:bg-ink-50 hover:text-ink-900 dark:hover:bg-night-800 dark:hover:text-white">
+        <i data-icon="x" class="h-[18px] w-[18px]"></i>
+      </button>
+      <div id="winnerBadge" class="winner-badge mx-auto grid h-[72px] w-[72px] place-items-center rounded-full text-ink-700">
+        <i data-icon="trophy" class="h-8 w-8"></i>
+      </div>
+      <p class="mt-5 font-display text-sm font-bold uppercase tracking-[.18em] text-matcha-500 dark:text-matcha-400" data-i18n="winner">We have a winner!</p>
+      <h3 id="winnerTitle" class="mt-2 break-words font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl"></h3>
+      <div class="mt-8 grid gap-2.5">
+        <button id="againBtn" type="button"
+          class="inline-flex items-center justify-center gap-2 rounded-full bg-matcha-500 px-6 py-3.5 font-display font-bold text-white shadow-btn transition hover:bg-matcha-600 active:scale-[.98] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-matcha-200">
+          <i data-icon="rotate" class="h-[18px] w-[18px]"></i> <span data-i18n="again">Spin again</span>
+        </button>
+        <button id="removeWinnerBtn" type="button"
+          class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink-200 px-6 py-3 font-display font-semibold text-ink-700 transition hover:border-ink-300 hover:bg-ink-50 active:scale-[.98] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-matcha-100 dark:border-night-700 dark:text-ink-200 dark:hover:bg-night-800">
+          <i data-icon="minus-circle" class="h-[18px] w-[18px]"></i> <span data-i18n="removeWinner">Remove winner</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Legal modal (Privacy Policy / Terms of Service). Also opens via #privacy and #terms -->
+  <div id="legalModal" class="fixed inset-0 z-50 hidden items-end justify-center p-0 sm:items-center sm:p-4" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
+    <div data-close-legal class="modal-backdrop absolute inset-0 bg-ink-900/35 backdrop-blur-sm dark:bg-black/60"></div>
+    <div class="modal-card relative flex max-h-[88vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-[28px] bg-white shadow-2xl dark:bg-night-850 sm:rounded-[28px]">
+      <div class="flex items-center justify-between gap-4 border-b border-ink-100 px-6 py-4 dark:border-night-700 sm:px-8">
+        <h2 id="legalTitle" class="font-display text-xl font-extrabold tracking-tight sm:text-2xl">Privacy Policy</h2>
+        <button data-close-legal type="button" aria-label="Close" data-i18n-aria="close"
+          class="grid h-9 w-9 shrink-0 place-items-center rounded-full text-ink-400 transition hover:bg-ink-50 hover:text-ink-900 dark:hover:bg-night-800 dark:hover:text-white">
+          <i data-icon="x" class="h-[18px] w-[18px]"></i>
+        </button>
+      </div>
+      <div id="legalBody" class="scroll-slim overflow-y-auto px-6 pb-8 pt-2 sm:px-8" tabindex="0">
+
+        <!-- ===================== PRIVACY POLICY (EN) ===================== -->
+        <article class="legal-prose" data-doc="privacy" data-lang-block="en" lang="en">
+          <p class="legal-meta">Last updated: October 30, 2026</p>
+          <h3>Overview</h3>
+          <p>This Privacy Policy explains how this random wheel website (the “Site”) handles information when you visit or use it. The Site works without an account and does not ask you for personal information.</p>
+          <h3>Information you enter</h3>
+          <p>The options you type, your recent results, and your sound and language preferences are stored only in your own browser using local storage. This information is not sent to or stored on our servers. You can delete it at any time with “Clear all”, by clearing your results, or by clearing your browser’s site data.</p>
+          <h3>Cookies and advertising</h3>
+          <p>We use Google AdSense to show ads. Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this Site or other websites. Google’s use of advertising cookies enables it and its partners to serve ads to you based on your visits to this Site and/or other sites on the internet.</p>
+          <ul>
+            <li>You can opt out of personalized advertising in <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ads Settings</a>.</li>
+            <li>You can opt out of some third-party vendors’ use of cookies for personalized advertising at <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">www.aboutads.info/choices</a>.</li>
+            <li>Learn <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses information from sites that use its services</a>.</li>
+          </ul>
+          <p>Where required by law (for example, for visitors in the European Economic Area, the United Kingdom or Switzerland), you will be asked for consent before personalized ads are shown.</p>
+          <h3>Log data</h3>
+          <p>Like most websites, our hosting provider may automatically record basic technical information such as your IP address, browser type and the pages you visit, for security and performance purposes.</p>
+          <h3>Your privacy rights</h3>
+          <p>Depending on where you live, including California and other U.S. states, you may have the right to know, access or delete personal information, and to opt out of certain uses such as targeted advertising. You can use the ad settings linked above and your browser’s privacy controls, or contact us with any request.</p>
+          <h3>Children’s privacy</h3>
+          <p>The Site is intended for a general audience and is not directed to children under 13. We do not knowingly collect personal information from children.</p>
+          <h3>Changes to this policy</h3>
+          <p>We may update this policy from time to time. The “Last updated” date above shows when it was last changed.</p>
+          <h3>Contact</h3>
+          <p>Questions about this policy? Email us at <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>.</p>
+        </article>
+
+        <!-- ===================== POLÍTICA DE PRIVACIDAD (ES) ===================== -->
+        <article class="legal-prose" data-doc="privacy" data-lang-block="es" lang="es" hidden>
+          <p class="legal-meta">Última actualización: 30 de octubre de 2026</p>
+          <h3>Resumen</h3>
+          <p>Esta Política de Privacidad explica cómo este sitio web de ruleta aleatoria (el “Sitio”) trata la información cuando lo visitas o lo usas. El Sitio funciona sin cuenta y no te pide datos personales.</p>
+          <h3>Información que ingresas</h3>
+          <p>Las opciones que escribes, tus resultados recientes y tus preferencias de sonido e idioma se guardan solo en tu propio navegador mediante almacenamiento local. Esta información no se envía ni se guarda en nuestros servidores. Puedes borrarla cuando quieras con “Borrar todo”, limpiando tus resultados o borrando los datos del sitio en tu navegador.</p>
+          <h3>Cookies y publicidad</h3>
+          <p>Usamos Google AdSense para mostrar anuncios. Proveedores externos, incluido Google, usan cookies para mostrar anuncios basados en tus visitas anteriores a este Sitio o a otros sitios web. El uso de cookies publicitarias permite a Google y a sus socios mostrarte anuncios basados en tus visitas a este Sitio y/u otros sitios de internet.</p>
+          <ul>
+            <li>Puedes desactivar la publicidad personalizada en la <a href="https://adssettings.google.com" target="_blank" rel="noopener">Configuración de anuncios de Google</a>.</li>
+            <li>Puedes desactivar el uso de cookies de algunos proveedores externos para publicidad personalizada en <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">www.aboutads.info/choices</a>.</li>
+            <li>Consulta <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">cómo usa Google la información de los sitios que usan sus servicios</a>.</li>
+          </ul>
+          <p>Cuando la ley lo exija (por ejemplo, para visitantes del Espacio Económico Europeo, el Reino Unido o Suiza), se te pedirá tu consentimiento antes de mostrar anuncios personalizados.</p>
+          <h3>Datos de registro</h3>
+          <p>Como la mayoría de los sitios web, nuestro proveedor de hosting puede registrar automáticamente información técnica básica, como tu dirección IP, tipo de navegador y las páginas que visitas, con fines de seguridad y rendimiento.</p>
+          <h3>Tus derechos de privacidad</h3>
+          <p>Según dónde vivas, incluidos California y otros estados de EE. UU., puedes tener derecho a conocer, acceder o eliminar información personal, y a excluirte de ciertos usos como la publicidad dirigida. Puedes usar la configuración de anuncios enlazada arriba y los controles de privacidad de tu navegador, o escribirnos con cualquier solicitud.</p>
+          <h3>Privacidad de menores</h3>
+          <p>El Sitio está dirigido al público general y no a menores de 13 años. No recopilamos a sabiendas información personal de menores.</p>
+          <h3>Cambios a esta política</h3>
+          <p>Podemos actualizar esta política ocasionalmente. La fecha de “Última actualización” indica cuándo cambió por última vez.</p>
+          <h3>Contacto</h3>
+          <p>¿Preguntas sobre esta política? Escríbenos a <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>.</p>
+        </article>
+
+        <!-- ===================== TERMS OF SERVICE (EN) ===================== -->
+        <article class="legal-prose" data-doc="terms" data-lang-block="en" lang="en" hidden>
+          <p class="legal-meta">Last updated: October 30, 2026</p>
+          <h3>Acceptance of these terms</h3>
+          <p>By accessing or using this website (the “Site”), you agree to these Terms of Service. If you do not agree, please do not use the Site.</p>
+          <h3>Use of the Site</h3>
+          <p>The Site is a free tool that randomly selects one option from a list you provide. You may use it for personal, educational or commercial purposes, as long as you use it lawfully and do not try to disrupt, overload or misuse the Site.</p>
+          <h3>Random results</h3>
+          <p>Results are generated in your browser using a random number generator and are provided for entertainment and informal decision-making. You are solely responsible for how you use the results. If you use the Site for a giveaway, contest, sweepstakes or raffle, you are responsible for following all applicable laws and platform rules.</p>
+          <h3>Your content</h3>
+          <p>You are responsible for the options you enter. Do not enter content that is unlawful or that infringes on the rights of others. Your content stays in your browser and is not published by us.</p>
+          <h3>Advertising and third-party links</h3>
+          <p>The Site shows ads served by third parties such as Google and may contain links to other websites. We are not responsible for the content, products or practices of third parties.</p>
+          <h3>No warranty</h3>
+          <p>The Site is provided “as is” and “as available”, without warranties of any kind, express or implied. We do not guarantee that the Site will be uninterrupted, error-free or always available.</p>
+          <h3>Limitation of liability</h3>
+          <p>To the fullest extent permitted by law, we will not be liable for any indirect, incidental, special or consequential damages, or for any loss arising from your use of the Site or reliance on its results.</p>
+          <h3>Intellectual property</h3>
+          <p>The Site’s design, code and branding belong to the Site operator. You may not copy or redistribute them without permission, except as allowed by law.</p>
+          <h3>Changes</h3>
+          <p>We may update these Terms at any time. If you keep using the Site after changes are posted, you accept the updated Terms.</p>
+          <h3>Contact</h3>
+          <p>Questions about these Terms? Email us at <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>.</p>
+        </article>
+
+        <!-- ===================== TÉRMINOS DE SERVICIO (ES) ===================== -->
+        <article class="legal-prose" data-doc="terms" data-lang-block="es" lang="es" hidden>
+          <p class="legal-meta">Última actualización: 30 de octubre de 2026</p>
+          <h3>Aceptación de estos términos</h3>
+          <p>Al acceder o usar este sitio web (el “Sitio”), aceptas estos Términos de Servicio. Si no estás de acuerdo, por favor no uses el Sitio.</p>
+          <h3>Uso del Sitio</h3>
+          <p>El Sitio es una herramienta gratuita que elige al azar una opción de una lista que tú proporcionas. Puedes usarlo con fines personales, educativos o comerciales, siempre que lo hagas de forma legal y no intentes interrumpir, sobrecargar o hacer mal uso del Sitio.</p>
+          <h3>Resultados aleatorios</h3>
+          <p>Los resultados se generan en tu navegador con un generador de números aleatorios y se ofrecen para entretenimiento y decisiones informales. Tú eres el único responsable de cómo usas los resultados. Si usas el Sitio para un sorteo, concurso, rifa o promoción, eres responsable de cumplir todas las leyes y reglas de plataforma aplicables.</p>
+          <h3>Tu contenido</h3>
+          <p>Eres responsable de las opciones que ingresas. No ingreses contenido ilegal o que infrinja derechos de terceros. Tu contenido se queda en tu navegador y no lo publicamos.</p>
+          <h3>Publicidad y enlaces de terceros</h3>
+          <p>El Sitio muestra anuncios de terceros como Google y puede contener enlaces a otros sitios web. No somos responsables del contenido, productos o prácticas de terceros.</p>
+          <h3>Sin garantía</h3>
+          <p>El Sitio se ofrece “tal cual” y “según disponibilidad”, sin garantías de ningún tipo, expresas o implícitas. No garantizamos que el Sitio funcione sin interrupciones, sin errores o que esté siempre disponible.</p>
+          <h3>Limitación de responsabilidad</h3>
+          <p>En la máxima medida permitida por la ley, no seremos responsables por daños indirectos, incidentales, especiales o consecuentes, ni por pérdidas derivadas del uso del Sitio o de confiar en sus resultados.</p>
+          <h3>Propiedad intelectual</h3>
+          <p>El diseño, el código y la marca del Sitio pertenecen a su operador. No puedes copiarlos ni redistribuirlos sin permiso, salvo lo que permita la ley.</p>
+          <h3>Cambios</h3>
+          <p>Podemos actualizar estos Términos en cualquier momento. Si sigues usando el Sitio después de publicar cambios, aceptas los Términos actualizados.</p>
+          <h3>Contacto</h3>
+          <p>¿Preguntas sobre estos Términos? Escríbenos a <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti -->
+  <canvas id="confetti" class="pointer-events-none fixed inset-0 z-[60] h-full w-full" aria-hidden="true"></canvas>
+
+  <!-- Toast -->
+  <div class="pointer-events-none fixed inset-x-0 bottom-0 z-[70] flex justify-center px-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+    <div id="toast" class="pointer-events-none flex max-w-full translate-y-4 items-center gap-4 rounded-full bg-ink-900 px-5 py-3 text-sm font-semibold text-white opacity-0 shadow-lg transition duration-300 dark:bg-white dark:text-ink-900">
+      <span id="toastMsg" class="truncate"></span>
+      <button id="toastAction" type="button" class="hidden shrink-0 font-bold text-matcha-200 hover:text-white dark:text-matcha-500 dark:hover:text-matcha-700"></button>
+    </div>
+  </div>
+
+  <div id="sr" class="sr-only" aria-live="polite"></div>
+
+  <noscript>
+    <p style="position:fixed;inset:auto 0 0 0;padding:12px;text-align:center;background:#151A3D;color:#fff">Please enable JavaScript to use the wheel. · Activa JavaScript para usar la ruleta.</p>
+  </noscript>
+
+  <!-- Reusable Tailwind components -->
+  <style type="text/tailwindcss">
+    @layer components {
+      .action-btn {
+        @apply inline-flex flex-col items-center justify-center gap-1 rounded-2xl border-2 border-ink-100 bg-white px-2 py-3 text-xs font-bold text-ink-700 transition hover:border-ink-200 hover:bg-ink-50 active:scale-[.97] dark:border-night-700 dark:bg-night-850 dark:text-ink-200 dark:hover:bg-night-800 sm:flex-row sm:gap-2 sm:text-sm;
+      }
+      .action-danger { @apply hover:border-[#F6C9D8] hover:bg-[#FDF0F5] hover:text-[#C2477A] dark:hover:border-[#C2477A]/40 dark:hover:bg-[#C2477A]/10 dark:hover:text-[#F3A6C3]; }
+
+      .step-card {
+        @apply flex flex-col items-center rounded-[28px] border border-ink-100/70 bg-white px-7 py-10 text-center shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-[0_1px_2px_rgba(21,26,61,.04),0_28px_60px_-22px_rgba(22,163,74,.28)] dark:border-night-700 dark:bg-night-850 sm:px-9 sm:py-12;
+      }
+      .step-num   { @apply font-display text-6xl font-extrabold leading-none tracking-tight text-matcha-500 dark:text-matcha-400 sm:text-7xl; }
+      .step-title { @apply mt-6 font-display text-xl font-extrabold tracking-tight sm:text-[1.4rem]; }
+      .step-text  { @apply mt-3 max-w-xs text-base leading-relaxed text-ink-500 dark:text-ink-300; }
+
+      .faq-item { @apply rounded-2xl border border-ink-100 bg-white transition open:shadow-card dark:border-night-700 dark:bg-night-850; }
+      .faq-q    { @apply flex cursor-pointer list-none items-center justify-between gap-4 rounded-2xl px-5 py-4 font-display text-base font-bold tracking-tight transition hover:text-matcha-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-matcha-100 dark:hover:text-matcha-400 sm:px-6 sm:text-lg; }
+      .faq-chev { @apply h-5 w-5 shrink-0 text-ink-400 transition-transform duration-300 group-open:rotate-180; }
+      .faq-a    { @apply px-5 pb-5 text-base leading-relaxed text-ink-500 dark:text-ink-300 sm:px-6; }
+
+      .legal-prose h3 { @apply mt-6 font-display text-base font-bold text-ink-900 dark:text-white; }
+      .legal-prose p, .legal-prose li { @apply mt-2 text-[15px] leading-relaxed text-ink-500 dark:text-ink-300; }
+      .legal-prose ul { @apply mt-2 list-disc space-y-1 pl-5; }
+      .legal-prose a  { @apply font-semibold text-matcha-600 underline decoration-matcha-200 underline-offset-2 hover:text-matcha-700 dark:text-matcha-400 dark:decoration-matcha-700; }
+      .legal-prose .legal-meta { @apply mt-4 text-sm text-ink-400; }
+    }
+  </style>
+
+  <script>
+  (() => {
+    'use strict';
+
+    /* ============================================================
+       Icons (Lucide-style strokes)
+       ============================================================ */
+    const ICONS = {
+      play: '<path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/>',
+      hand: '<path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>',
+      rotate: '<path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/>',
+      shuffle: '<path d="m18 14 4 4-4 4"/><path d="m18 2 4 4-4 4"/><path d="M2 18h1.97a4 4 0 0 0 3.3-1.7l5.45-7.6a4 4 0 0 1 3.3-1.7H22"/><path d="M2 6h1.97a4 4 0 0 1 3.6 2.2"/><path d="M22 18h-6.04a4 4 0 0 1-3.3-1.8l-.36-.45"/>',
+      sort: '<path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="M20 8h-5"/><path d="M15 10V6.5a2.5 2.5 0 0 1 5 0V10"/><path d="M15 14h5l-5 6h5"/>',
+      trash: '<path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><path d="M10 11v6M14 11v6"/>',
+      utensils: '<path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>',
+      hash: '<path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/>',
+      thumbs: '<path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88z"/>',
+      sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>',
+      volume: '<path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.41 7.59A1.4 1.4 0 0 1 5.42 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.42a1.4 1.4 0 0 1 .99.41l3.39 3.39a.7.7 0 0 0 1.2-.5z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.36 18.36a9 9 0 0 0 0-12.73"/>',
+      'volume-x': '<path d="M11 4.7a.7.7 0 0 0-1.2-.5L6.41 7.59A1.4 1.4 0 0 1 5.42 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.42a1.4 1.4 0 0 1 .99.41l3.39 3.39a.7.7 0 0 0 1.2-.5z"/><path d="m22 9-6 6M16 9l6 6"/>',
+      x: '<path d="M18 6 6 18M6 6l12 12"/>',
+      trophy: '<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>',
+      'minus-circle': '<circle cx="12" cy="12" r="10"/><path d="M8 12h8"/>',
+      history: '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>',
+      letters: '<path d="m3 17 4.5-11 4.5 11"/><path d="M4.7 13h5.6"/><path d="M15 6h3.5a2.5 2.5 0 0 1 0 5H15z"/><path d="M15 11h4a3 3 0 0 1 0 6h-4z"/>',
+      palette: '<circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.56-2.5 5.56-5.55C21.97 6.01 17.46 2 12 2z"/>',
+      chevron: '<path d="m6 9 6 6 6-6"/>',
+    };
+
+    function iconSVG(name, cls = '', fill = false) {
+      const attrs = fill
+        ? 'fill="currentColor" stroke="none"'
+        : 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+      return `<svg class="${cls}" viewBox="0 0 24 24" ${attrs} aria-hidden="true">${ICONS[name] || ''}</svg>`;
+    }
+
+    document.querySelectorAll('i[data-icon]').forEach((el) => {
+      el.outerHTML = iconSVG(el.dataset.icon, el.className, el.dataset.fill === '1');
+    });
+
+    /* ============================================================
+       Translations (EN default · ES)
+       ============================================================ */
+    const I18N = {
+      en: {
+        title: 'Random Wheel Generator | Spin the Wheel Decision Maker',
+        metaDesc: 'Free spin-the-wheel decision maker. Add your options, spin and get a random winner — perfect for giveaways, classrooms, games and quick choices. No sign-up.',
+        ogDesc: 'Free spin-the-wheel decision maker. Add your options, spin and get a random winner. No sign-up.',
+        ogLocale: 'en_US',
+        home: 'Home', langGroup: 'Language', legalNav: 'Legal',
+        sound: 'Sound', soundAria: 'Spin sound',
+        heroA: 'Random Wheel:', heroB: 'Spin, pick & decide',
+        heroSub: 'Add your options, spin the wheel and let chance choose for you.',
+        wheelAria: 'Wheel — click to spin',
+        hint: 'Click to spin', hintTouch: 'Tap to spin',
+        spin: 'Spin the Wheel', spinning: 'Spinning…',
+        orPress: 'or press', space: 'Space',
+        recent: 'Recent results', clearHistory: 'Clear',
+        options: 'Options',
+        optionsHelp: 'Type the options you want to pick from at random, one per line.',
+        placeholder: 'Option 1\nOption 2\nOption 3',
+        textareaAria: 'Options, one per line',
+        autosave: 'Saved automatically',
+        shuffle: 'Shuffle', sort: 'Sort', clearAll: 'Clear all',
+        templates: 'Quick templates',
+        howTitle: 'How to use the random wheel',
+        howSub: 'Three steps and you’re done. No sign-up, no downloads.',
+        step1t: 'Add your options',
+        step1d: 'Type one option per line or pick a quick template. Great for games, giveaways, classroom picks or everyday decisions.',
+        step2t: 'Spin the wheel',
+        step2d: 'Tap the wheel, the “Spin” button or your Space bar, and watch it slow down until it lands on a random pick.',
+        step3t: 'Celebrate & repeat',
+        step3d: 'Spin as many times as you like, or remove the winner for no-repeat drawings. Your list is saved for next time.',
+        faqTitle: 'Frequently asked questions',
+        faq1q: 'Is the wheel really random?',
+        faq1a: 'Yes. The winner is chosen with your browser’s cryptographically secure random generator before the animation starts, so every option has exactly the same chance.',
+        faq2q: 'Is it free? Do I need an account?',
+        faq2a: 'It’s completely free and works right in your browser. No sign-up, no downloads.',
+        faq3q: 'Where are my options saved?',
+        faq3a: 'Only in your own browser (local storage). Nothing you type is uploaded to a server, and you can clear it anytime with “Clear all”.',
+        faq4q: 'Can I use it for giveaways and raffles?',
+        faq4a: 'Yes. After each spin, choose “Remove winner” so the same name can’t win twice. If you run an official giveaway, make sure it follows the rules where you live.',
+        faq5q: 'How many options can I add?',
+        faq5a: 'Up to 100 options of up to 60 characters each. The slices and text resize automatically.',
+        footerNote: 'Your options are saved only in this browser.',
+        privacy: 'Privacy Policy', terms: 'Terms of Service', contact: 'Contact',
+        close: 'Close',
+        winner: 'We have a winner!', again: 'Spin again', removeWinner: 'Remove winner',
+        adLabel: 'Advertisement',
+        undo: 'Undo',
+        emptyCanvas: 'Add your options',
+        optCount: (n) => `${n} ${n === 1 ? 'option' : 'options'}`,
+        wheelWith: (n) => `Wheel with ${n} ${n === 1 ? 'option' : 'options'}`,
+        wheelEmpty: 'Empty wheel',
+        needTwo: 'Add at least two options to spin.',
+        needOneMore: 'Add one more option to spin.',
+        onlyFirst: (n) => `Only the first ${n} options are used.`,
+        needTwoShuffle: 'You need at least two options to shuffle.',
+        shuffled: 'Options shuffled',
+        needTwoSort: 'You need at least two options to sort.',
+        sorted: 'Options sorted A–Z',
+        listEmpty: 'The list is already empty.',
+        clearedAll: 'All options cleared',
+        removed: (x) => `“${x}” removed`,
+        tplLoaded: (x) => `“${x}” template loaded`,
+        tplCount: (n) => `${n} options`,
+        soundOn: 'Sound on', soundOff: 'Sound off',
+        result: (x) => `Result: ${x}`,
+      },
+      es: {
+        title: 'Ruleta Aleatoria Online | Gira la ruleta y decide',
+        metaDesc: 'Ruleta aleatoria gratis: agrega tus opciones, gira y obtén un ganador al azar. Ideal para sorteos, clases, juegos y decisiones rápidas. Sin registro.',
+        ogDesc: 'Ruleta aleatoria gratis: agrega tus opciones, gira y obtén un ganador al azar. Sin registro.',
+        ogLocale: 'es_MX',
+        home: 'Inicio', langGroup: 'Idioma', legalNav: 'Legal',
+        sound: 'Sonido', soundAria: 'Sonido de giro',
+        heroA: 'Ruleta Aleatoria:', heroB: 'Escribe, gira y decide',
+        heroSub: 'Agrega tus opciones, haz girar la ruleta y deja que la suerte elija por ti.',
+        wheelAria: 'Ruleta — haz clic para girar',
+        hint: 'Haz clic para girar', hintTouch: 'Toca para girar',
+        spin: 'Girar la ruleta', spinning: 'Girando…',
+        orPress: 'o presiona', space: 'Espacio',
+        recent: 'Últimos resultados', clearHistory: 'Limpiar',
+        options: 'Opciones',
+        optionsHelp: 'Escribe las opciones entre las que quieres hacer una selección aleatoria, una por línea.',
+        placeholder: 'Opción 1\nOpción 2\nOpción 3',
+        textareaAria: 'Opciones, una por línea',
+        autosave: 'Se guarda automáticamente',
+        shuffle: 'Mezclar', sort: 'Ordenar', clearAll: 'Borrar todo',
+        templates: 'Plantillas rápidas',
+        howTitle: '¿Cómo usar la ruleta aleatoria?',
+        howSub: 'Tres pasos y listo. Sin registro, sin descargas.',
+        step1t: 'Escribe tus opciones',
+        step1d: 'Pon una opción por línea o elige una plantilla rápida. Sirve para juegos, rifas, turnos en clase o decisiones del día.',
+        step2t: 'Haz girar la ruleta',
+        step2d: 'Toca la ruleta, el botón “Girar” o la tecla Espacio, y mira cómo frena poco a poco hasta elegir al azar.',
+        step3t: 'Celebra y repite',
+        step3d: 'Gira las veces que quieras o elimina la opción ganadora para hacer sorteos sin repetir. Tu lista queda guardada.',
+        faqTitle: 'Preguntas frecuentes',
+        faq1q: '¿La ruleta es realmente aleatoria?',
+        faq1a: 'Sí. El ganador se elige con el generador aleatorio criptográfico de tu navegador antes de que empiece la animación, así que todas las opciones tienen exactamente la misma probabilidad.',
+        faq2q: '¿Es gratis? ¿Necesito una cuenta?',
+        faq2a: 'Es totalmente gratis y funciona directo en tu navegador. Sin registro y sin descargas.',
+        faq3q: '¿Dónde se guardan mis opciones?',
+        faq3a: 'Solo en tu propio navegador (almacenamiento local). Nada de lo que escribes se sube a un servidor y puedes borrarlo cuando quieras con “Borrar todo”.',
+        faq4q: '¿Puedo usarla para sorteos y rifas?',
+        faq4a: 'Sí. Después de cada giro, elige “Eliminar opción ganadora” para que el mismo nombre no gane dos veces. Si organizas un sorteo oficial, asegúrate de cumplir las reglas de tu país.',
+        faq5q: '¿Cuántas opciones puedo agregar?',
+        faq5a: 'Hasta 100 opciones de hasta 60 caracteres cada una. Las rebanadas y el texto se ajustan solos.',
+        footerNote: 'Tus opciones se guardan solo en este navegador.',
+        privacy: 'Política de Privacidad', terms: 'Términos de Servicio', contact: 'Contacto',
+        close: 'Cerrar',
+        winner: '¡Tenemos ganador!', again: 'Girar de nuevo', removeWinner: 'Eliminar opción ganadora',
+        adLabel: 'Publicidad',
+        undo: 'Deshacer',
+        emptyCanvas: 'Escribe tus opciones',
+        optCount: (n) => `${n} ${n === 1 ? 'opción' : 'opciones'}`,
+        wheelWith: (n) => `Ruleta con ${n} ${n === 1 ? 'opción' : 'opciones'}`,
+        wheelEmpty: 'Ruleta vacía',
+        needTwo: 'Escribe al menos dos opciones para girar.',
+        needOneMore: 'Agrega una opción más para poder girar.',
+        onlyFirst: (n) => `Sólo se usan las primeras ${n} opciones.`,
+        needTwoShuffle: 'Necesitas al menos dos opciones para mezclar.',
+        shuffled: 'Opciones mezcladas',
+        needTwoSort: 'Necesitas al menos dos opciones para ordenar.',
+        sorted: 'Opciones ordenadas A–Z',
+        listEmpty: 'La lista ya está vacía.',
+        clearedAll: 'Se borraron todas las opciones',
+        removed: (x) => `“${x}” se eliminó`,
+        tplLoaded: (x) => `Plantilla “${x}” cargada`,
+        tplCount: (n) => `${n} opciones`,
+        soundOn: 'Sonido activado', soundOff: 'Modo silencioso',
+        result: (x) => `Resultado: ${x}`,
+      },
+    };
+    const LANGS = Object.keys(I18N);
+
+    /* ============================================================
+       Configuration
+       ============================================================ */
+    const STORAGE = { options: 'ruleta:options', sound: 'ruleta:sound', history: 'ruleta:history', lang: 'ruleta:lang' };
+    const MAX_OPTIONS = 100;
+    const MAX_LEN = 60;
+    const TAU = Math.PI * 2;
+    const POINTER = -Math.PI / 2; // pointer at the top
+
+    // Soft pastels: blue, lavender, pink, cream, mint, sky, peach, lime
+    const PALETTE = ['#E6EEFC', '#ECE5FA', '#FCE6EF', '#FEF1DA', '#DDF4EA', '#DFF3FB', '#FBE9DF', '#EAF5DC'];
+
+    const DEFAULTS = {
+      en: ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5', 'Option 6'],
+      es: ['Opción 1', 'Opción 2', 'Opción 3', 'Opción 4', 'Opción 5', 'Opción 6'],
+    };
+
+    const NUMBERS = Array.from({ length: 10 }, (_, i) => String(i + 1));
+    const TEMPLATES = [
+      { icon: 'utensils', bg: '#FEF1DA', fg: '#B7791F',
+        en: { name: 'What’s for dinner?', items: ['Pizza', 'Sushi', 'Tacos', 'Burgers', 'Pasta', 'Ramen', 'Salad', 'Fried chicken'] },
+        es: { name: '¿Qué cenar?', items: ['Pizza', 'Sushi', 'Tacos', 'Hamburguesas', 'Pasta', 'Ramen', 'Ensalada', 'Pollo asado'] } },
+      { icon: 'hash', bg: '#ECE5FA', fg: '#6B4FC8',
+        en: { name: 'Numbers 1–10', items: NUMBERS },
+        es: { name: 'Números 1–10', items: NUMBERS } },
+      { icon: 'thumbs', bg: '#D9F6E3', fg: '#128A3E',
+        en: { name: 'Yes or No', items: ['Yes', 'No'] },
+        es: { name: 'Sí o No', items: ['Sí', 'No'] } },
+      { icon: 'sun', bg: '#FCE6EF', fg: '#C2477A',
+        en: { name: 'Weekend plans', items: ['Movie night', 'Picnic', 'Binge a series', 'Museum', 'Hike', 'Board games', 'Cook something new', 'Coffee with friends'] },
+        es: { name: 'Plan del finde', items: ['Ir al cine', 'Picnic', 'Maratón de series', 'Museo', 'Caminata', 'Juegos de mesa', 'Cocinar algo nuevo', 'Café con amigos'] } },
+      { icon: 'letters', bg: '#FBE9DF', fg: '#C2622D',
+        en: { name: 'Letters A–Z', items: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('') },
+        es: { name: 'Letras A–Z', items: 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('') } },
+      { icon: 'palette', bg: '#DFF3FB', fg: '#1C7FA8',
+        en: { name: 'Colors', items: ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Pink', 'Brown', 'Black', 'White', 'Gray', 'Turquoise'] },
+        es: { name: 'Colores', items: ['Rojo', 'Naranja', 'Amarillo', 'Verde', 'Azul', 'Morado', 'Rosa', 'Café', 'Negro', 'Blanco', 'Gris', 'Turquesa'] } },
+    ];
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouch = window.matchMedia('(hover: none)').matches;
+
+    /* ============================================================
+       Utilities
+       ============================================================ */
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+    const store = {
+      get(key, fallback) {
+        try { const v = localStorage.getItem(key); return v === null ? fallback : JSON.parse(v); }
+        catch { return fallback; }
+      },
+      set(key, value) {
+        try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* storage unavailable */ }
+      },
+    };
+
+    function rand() {
+      try { const a = new Uint32Array(1); crypto.getRandomValues(a); return a[0] / 4294967296; }
+      catch { return Math.random(); }
+    }
+    const randInt = (n) => Math.floor(rand() * n);
+    const norm = (a) => ((a % TAU) + TAU) % TAU;
+    const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+    const easeOut = (t) => 1 - Math.pow(1 - t, 4); // friction-like deceleration
+
+    function sanitize(arr, fallback) {
+      if (!Array.isArray(arr)) return [...fallback];
+      return arr.filter((x) => typeof x === 'string')
+        .map((s) => s.trim().slice(0, MAX_LEN)).filter(Boolean).slice(0, MAX_OPTIONS);
+    }
+
+    function colorFor(i, n) {
+      let c = i % PALETTE.length;
+      if (n > 1 && i === n - 1 && c === 0) c = Math.floor(PALETTE.length / 2); // avoid equal neighbours
+      return PALETTE[c];
+    }
+
+    /* ============================================================
+       Language
+       ============================================================ */
+    function initialLang() {
+      try {
+        const q = new URLSearchParams(location.search).get('lang');
+        if (q && LANGS.includes(q)) return q;
+      } catch { /* ignore */ }
+      const saved = store.get(STORAGE.lang, null);
+      return LANGS.includes(saved) ? saved : 'en';
+    }
+
+    let lang = initialLang();
+
+    function t(key, ...args) {
+      const v = (I18N[lang] && I18N[lang][key] !== undefined) ? I18N[lang][key] : I18N.en[key];
+      return typeof v === 'function' ? v(...args) : (v ?? key);
+    }
+
+    /* ============================================================
+       State
+       ============================================================ */
+    let options = sanitize(store.get(STORAGE.options, null), DEFAULTS[lang]);
+    let soundOn = store.get(STORAGE.sound, true) !== false;
+    let history = sanitize(store.get(STORAGE.history, []), []).slice(0, 8);
+    let rotation = 0;
+    let spinning = false;
+    let highlight = -1;
+    let winnerIndex = -1;
+    let modalOpen = false;
+    let legalOpen = false;
+    let legalDoc = 'privacy';
+
+    /* ============================================================
+       Elements
+       ============================================================ */
+    const wrap = $('#wheelWrap');
+    const canvas = $('#wheel');
+    const ctx = canvas.getContext('2d');
+    const cache = document.createElement('canvas');
+    const cctx = cache.getContext('2d');
+    const pointerEl = $('#pointer');
+    const hint = $('#hint');
+    const hintText = $('#hintText');
+    const spinBtn = $('#spinBtn');
+    const spinLabel = $('#spinLabel');
+    const spinIcon = $('#spinIcon');
+    const hubBtn = $('#hubBtn');
+    const panel = $('#panel');
+    const bulk = $('#bulk');
+    const countEl = $('#count');
+    const soundToggle = $('#soundToggle');
+    const modal = $('#modal');
+    const winnerTitle = $('#winnerTitle');
+    const winnerBadge = $('#winnerBadge');
+    const againBtn = $('#againBtn');
+    const removeWinnerBtn = $('#removeWinnerBtn');
+    const historyWrap = $('#historyWrap');
+    const historyEl = $('#history');
+    const templatesEl = $('#templates');
+    const legalModal = $('#legalModal');
+    const legalTitle = $('#legalTitle');
+    const legalBody = $('#legalBody');
+    const sr = $('#sr');
+
+    /* ============================================================
+       Static translations
+       ============================================================ */
+    function applyStaticText() {
+      document.documentElement.lang = lang;
+      document.title = t('title');
+      $('#metaDesc').setAttribute('content', t('metaDesc'));
+      $('#ogTitle').setAttribute('content', t('title'));
+      $('#ogDesc').setAttribute('content', t('ogDesc'));
+      $('#ogLocale').setAttribute('content', t('ogLocale'));
+
+      $$('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+      $$('[data-i18n-aria]').forEach((el) => el.setAttribute('aria-label', t(el.dataset.i18nAria)));
+      $$('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+      $$('[data-i18n-label]').forEach((el) => { el.dataset.label = t(el.dataset.i18nLabel); });
+      $$('[data-lang-btn]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.langBtn === lang)));
+
+      hintText.textContent = t(isTouch ? 'hintTouch' : 'hint');
+      spinLabel.textContent = spinning ? t('spinning') : t('spin');
+      refreshLegal();
+    }
+
+    // When switching language, translate the list if it is still a built-in preset
+    function translatePresetOptions(from, to) {
+      if (!options.length) return false;
+      const presets = [{ [from]: DEFAULTS[from], [to]: DEFAULTS[to] }, ...TEMPLATES.map((tp) => ({ [from]: tp[from].items, [to]: tp[to].items }))];
+      for (const p of presets) {
+        const src = p[from], dst = p[to];
+        if (!options.every((o) => src.includes(o))) continue;
+        const next = src.length === dst.length
+          ? options.map((o) => dst[src.indexOf(o)])
+          : options.filter((o) => dst.includes(o));
+        const changed = next.length !== options.length || next.some((s, i) => s !== options[i]);
+        if (changed && next.length) { options = next; return true; }
+        return false;
+      }
+      return false;
+    }
+
+    function setLang(next) {
+      if (!LANGS.includes(next) || next === lang || spinning) return;
+      syncFromText();
+      const prev = lang;
+      lang = next;
+      store.set(STORAGE.lang, lang);
+      try {
+        const url = new URL(location.href);
+        if (lang === 'en') url.searchParams.delete('lang'); else url.searchParams.set('lang', lang);
+        history_replace(url.pathname + url.search + url.hash);
+      } catch { /* ignore */ }
+
+      const translated = translatePresetOptions(prev, next);
+      applyStaticText();
+      renderTemplates();
+      if (translated) commit(); else { renderCache(); draw(); updateMeta(); }
+    }
+
+    function history_replace(path) {
+      try { window.history.replaceState(null, '', path); } catch { /* file:// or sandbox */ }
+    }
+
+    $$('[data-lang-btn]').forEach((b) => b.addEventListener('click', () => setLang(b.dataset.langBtn)));
+
+    /* ============================================================
+       Wheel drawing (Canvas)
+       ============================================================ */
+    let size = 0;
+    let dpr = 1;
+    let geo = { R: 0, r: 0 };
+    let theme = {};
+
+    function readTheme() {
+      const cs = getComputedStyle(document.documentElement);
+      const v = (name) => cs.getPropertyValue(name).trim();
+      theme = {
+        edge: v('--wheel-edge'), sep: v('--wheel-sep'), text: v('--wheel-text'),
+        dim: v('--wheel-dim'), empty: v('--wheel-empty'), emptyText: v('--wheel-empty-text'),
+      };
+    }
+
+    function fitText(c, text, maxW) {
+      if (c.measureText(text).width <= maxW) return text;
+      let lo = 0, hi = text.length;
+      while (lo < hi) {
+        const mid = (lo + hi + 1) >> 1;
+        if (c.measureText(text.slice(0, mid) + '…').width <= maxW) lo = mid; else hi = mid - 1;
+      }
+      return text.slice(0, lo).trimEnd() + '…';
+    }
+
+    function resize() {
+      const s = wrap.clientWidth;
+      if (!s) return;
+      size = s;
+      dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+      canvas.width = Math.round(s * dpr);
+      canvas.height = Math.round(s * dpr);
+      renderCache();
+      draw();
+    }
+
+    // The wheel is painted once into an offscreen canvas; spinning only rotates that image.
+    function renderCache() {
+      if (!size) return;
+      readTheme();
+      const px = canvas.width;
+      cache.width = px;
+      cache.height = px;
+      const c = cctx;
+      c.setTransform(dpr, 0, 0, dpr, 0, 0);
+      c.clearRect(0, 0, size, size);
+
+      const cx = size / 2, cy = size / 2;
+      const R = size / 2 - 1;
+      const edge = Math.max(2, size * 0.006);
+      const r = R - edge;
+      geo = { R, r };
+
+      c.beginPath();
+      c.arc(cx, cy, R, 0, TAU);
+      c.fillStyle = theme.edge;
+      c.fill();
+
+      const n = options.length;
+      if (n === 0) {
+        c.beginPath();
+        c.arc(cx, cy, r, 0, TAU);
+        c.fillStyle = theme.empty;
+        c.fill();
+        c.fillStyle = theme.emptyText;
+        c.font = `600 ${Math.max(13, r * 0.07)}px Poppins, system-ui, sans-serif`;
+        c.textAlign = 'center';
+        c.textBaseline = 'middle';
+        c.fillText(t('emptyCanvas'), cx, cy - r * 0.45);
+        return;
+      }
+
+      const arc = TAU / n;
+
+      for (let i = 0; i < n; i++) {
+        c.beginPath();
+        c.moveTo(cx, cy);
+        c.arc(cx, cy, r, i * arc, (i + 1) * arc);
+        c.closePath();
+        c.fillStyle = colorFor(i, n);
+        c.fill();
+      }
+
+      if (n > 1) {
+        c.strokeStyle = theme.sep;
+        c.lineWidth = Math.max(2, size * 0.006);
+        c.lineCap = 'round';
+        c.beginPath();
+        for (let i = 0; i < n; i++) {
+          const a = i * arc;
+          c.moveTo(cx, cy);
+          c.lineTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r);
+        }
+        c.stroke();
+      }
+
+      // Large text, reading from the rim toward the center
+      const fontSize = clamp(Math.min(r * 0.105, arc * r * 0.42), 10, 36);
+      c.font = `700 ${fontSize}px Poppins, system-ui, sans-serif`;
+      c.fillStyle = theme.text;
+      c.textAlign = 'left';
+      c.textBaseline = 'middle';
+      const maxW = r * 0.66;
+      for (let i = 0; i < n; i++) {
+        const label = fitText(c, options[i] || '', maxW);
+        c.save();
+        c.translate(cx, cy);
+        c.rotate((i + 0.5) * arc + Math.PI);
+        c.fillText(label, -r * 0.92, fontSize * 0.04);
+        c.restore();
+      }
+    }
+
+    function draw() {
+      if (!size) return;
+      const px = canvas.width;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, px, px);
+      ctx.translate(px / 2, px / 2);
+      ctx.rotate(rotation);
+      ctx.drawImage(cache, -px / 2, -px / 2);
+
+      const n = options.length;
+      if (highlight >= 0 && highlight < n && n > 1 && !spinning) {
+        const rr = geo.r * dpr;
+        const a = TAU / n;
+        ctx.beginPath();
+        for (let i = 0; i < n; i++) {
+          if (i === highlight) continue;
+          ctx.moveTo(0, 0);
+          ctx.arc(0, 0, rr, i * a, (i + 1) * a);
+          ctx.closePath();
+        }
+        ctx.fillStyle = theme.dim;
+        ctx.fill();
+      }
+    }
+
+    function indexAt(rot, n) {
+      return Math.floor(norm(POINTER - rot) / (TAU / n)) % n;
+    }
+
+    /* ============================================================
+       Synth sound (Web Audio API)
+       ============================================================ */
+    let actx = null;
+    let master = null;
+
+    function unlockAudio() {
+      if (!soundOn) return;
+      try {
+        if (!actx) {
+          const AC = window.AudioContext || window.webkitAudioContext;
+          if (!AC) return;
+          actx = new AC();
+          master = actx.createGain();
+          master.gain.value = 0.55;
+          master.connect(actx.destination);
+        }
+        if (actx.state === 'suspended') actx.resume();
+      } catch { /* no audio */ }
+    }
+
+    function tick() {
+      if (!soundOn || !actx) return;
+      const t0 = actx.currentTime;
+      const o = actx.createOscillator();
+      const g = actx.createGain();
+      o.type = 'triangle';
+      o.frequency.setValueAtTime(1500, t0);
+      o.frequency.exponentialRampToValueAtTime(520, t0 + 0.04);
+      g.gain.setValueAtTime(0.0001, t0);
+      g.gain.exponentialRampToValueAtTime(0.22, t0 + 0.003);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.05);
+      o.connect(g).connect(master);
+      o.start(t0);
+      o.stop(t0 + 0.06);
+    }
+
+    function playWin() {
+      if (!soundOn || !actx) return;
+      const t0 = actx.currentTime + 0.02;
+      [523.25, 659.25, 783.99, 1046.5, 1318.5].forEach((f, i) => {
+        const tt = t0 + i * 0.085;
+        ['sine', 'triangle'].forEach((type, k) => {
+          const o = actx.createOscillator();
+          const g = actx.createGain();
+          o.type = type;
+          o.frequency.setValueAtTime(f * (k ? 2 : 1), tt);
+          g.gain.setValueAtTime(0.0001, tt);
+          g.gain.exponentialRampToValueAtTime(k ? 0.04 : 0.18, tt + 0.012);
+          g.gain.exponentialRampToValueAtTime(0.0001, tt + (i === 4 ? 0.9 : 0.45));
+          o.connect(g).connect(master);
+          o.start(tt);
+          o.stop(tt + 1);
+        });
+      });
+    }
+
+    function wiggle() {
+      if (reduceMotion || !pointerEl.animate) return;
+      pointerEl.animate(
+        [{ transform: 'translateX(-50%) rotate(-16deg)' }, { transform: 'translateX(-50%) rotate(0deg)' }],
+        { duration: 160, easing: 'cubic-bezier(.3,1.6,.5,1)' }
+      );
+    }
+
+    /* ============================================================
+       Spin
+       ============================================================ */
+    function setSpinning(on) {
+      panel.disabled = on;
+      spinBtn.disabled = on;
+      hubBtn.disabled = on;
+      spinLabel.textContent = on ? t('spinning') : t('spin');
+      spinIcon.classList.toggle('animate-spin', on);
+      wrap.classList.toggle('cursor-pointer', !on);
+      wrap.setAttribute('aria-busy', on ? 'true' : 'false');
+      if (on) hint.classList.add('opacity-0');
+    }
+
+    function updateHint() {
+      hint.classList.toggle('opacity-0', spinning || modalOpen);
+    }
+
+    function spin() {
+      if (spinning || legalOpen) return;
+      if (modalOpen) closeModal();
+      syncFromText();
+
+      const n = options.length;
+      if (n < 2) {
+        toast(n === 0 ? t('needTwo') : t('needOneMore'));
+        bulk.focus();
+        return;
+      }
+
+      unlockAudio();
+      spinning = true;
+      highlight = -1;
+      setSpinning(true);
+
+      // uniform winner + exact final angle inside its slice
+      const arc = TAU / n;
+      const idx = randInt(n);
+      const offset = 0.12 + rand() * 0.76;
+      let target = POINTER - (idx + offset) * arc;
+      const minTarget = rotation + (5 + randInt(3)) * TAU;
+      target += Math.ceil((minTarget - target) / TAU) * TAU;
+
+      const start = rotation;
+      const delta = target - start;
+      const duration = reduceMotion ? 2200 : 5200 + rand() * 1600;
+      let t0 = null;
+      let lastSeg = indexAt(start, n);
+      let lastTick = 0;
+
+      function frame(now) {
+        if (t0 === null) t0 = now;
+        const p = Math.min(1, (now - t0) / duration);
+        rotation = start + delta * easeOut(p);
+        const seg = indexAt(rotation, n);
+        if (seg !== lastSeg) {
+          lastSeg = seg;
+          if (now - lastTick > 28) { lastTick = now; tick(); wiggle(); }
+        }
+        draw();
+        if (p < 1) requestAnimationFrame(frame); else finish();
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function finish() {
+      rotation = norm(rotation);
+      const idx = indexAt(rotation, options.length);
+      highlight = idx;
+      winnerIndex = idx;
+      spinning = false;
+      draw();
+      spinning = true; // keep the UI locked until the modal appears
+      pushHistory(options[idx]);
+
+      setTimeout(() => {
+        spinning = false;
+        setSpinning(false);
+        playWin();
+        openModal(idx);
+        launchConfetti();
+      }, 380);
+    }
+
+    /* ============================================================
+       Focus helper
+       ============================================================ */
+    function trapFocus(container, e) {
+      const items = Array.from(container.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])'))
+        .filter((el) => el.offsetParent !== null && !el.disabled);
+      if (!items.length) return;
+      const first = items[0], last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+
+    /* ============================================================
+       Winner modal
+       ============================================================ */
+    let lastFocus = null;
+
+    function openModal(i) {
+      const name = options[i];
+      winnerTitle.textContent = name;
+      winnerBadge.style.background = colorFor(i, options.length);
+      modal.classList.remove('hidden');
+      modal.classList.add('flex', 'modal-open');
+      modalOpen = true;
+      lastFocus = document.activeElement;
+      document.body.style.overflow = 'hidden';
+      againBtn.focus({ preventScroll: true });
+      sr.textContent = t('result', name);
+    }
+
+    function closeModal() {
+      if (!modalOpen) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex', 'modal-open');
+      modalOpen = false;
+      document.body.style.overflow = '';
+      updateHint();
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus({ preventScroll: true });
+    }
+
+    modal.addEventListener('click', (e) => { if (e.target.closest('[data-close]')) closeModal(); });
+
+    againBtn.addEventListener('click', () => {
+      closeModal();
+      setTimeout(spin, 180);
+    });
+
+    removeWinnerBtn.addEventListener('click', () => {
+      if (winnerIndex < 0 || winnerIndex >= options.length) return closeModal();
+      const prev = [...options];
+      const removed = options[winnerIndex];
+      options.splice(winnerIndex, 1);
+      winnerIndex = -1;
+      commit();
+      closeModal();
+      undoToast(t('removed', removed), prev);
+    });
+
+    /* ============================================================
+       Legal modal (Privacy Policy / Terms of Service)
+       ============================================================ */
+    let legalLastFocus = null;
+
+    function refreshLegal() {
+      legalTitle.textContent = t(legalDoc === 'terms' ? 'terms' : 'privacy');
+      $$('#legalBody [data-doc]').forEach((el) => {
+        el.hidden = el.dataset.doc !== legalDoc || el.dataset.langBlock !== lang;
+      });
+    }
+
+    function openLegal(doc) {
+      if (spinning) return;
+      if (modalOpen) closeModal();
+      legalDoc = doc === 'terms' ? 'terms' : 'privacy';
+      refreshLegal();
+      if (!legalOpen) {
+        legalLastFocus = document.activeElement;
+        legalModal.classList.remove('hidden');
+        legalModal.classList.add('flex', 'modal-open');
+        document.body.style.overflow = 'hidden';
+        legalOpen = true;
+      }
+      legalBody.scrollTop = 0;
+      legalModal.querySelector('[data-close-legal].grid').focus({ preventScroll: true });
+    }
+
+    function closeLegal() {
+      if (!legalOpen) return;
+      legalModal.classList.add('hidden');
+      legalModal.classList.remove('flex', 'modal-open');
+      document.body.style.overflow = '';
+      legalOpen = false;
+      if (location.hash === '#privacy' || location.hash === '#terms') history_replace(location.pathname + location.search);
+      if (legalLastFocus && typeof legalLastFocus.focus === 'function') legalLastFocus.focus({ preventScroll: true });
+    }
+
+    legalModal.addEventListener('click', (e) => { if (e.target.closest('[data-close-legal]')) closeLegal(); });
+
+    function handleHash() {
+      const h = location.hash.slice(1);
+      if (h === 'privacy' || h === 'terms') openLegal(h);
+      else if (legalOpen) closeLegal();
+    }
+    window.addEventListener('hashchange', handleHash);
+
+    /* ============================================================
+       Confetti
+       ============================================================ */
+    const cf = $('#confetti');
+    const cfx = cf.getContext('2d');
+    let parts = [];
+    let cfRunning = false;
+    let cfLast = 0;
+
+    function launchConfetti() {
+      const w = window.innerWidth, h = window.innerHeight;
+      const d = Math.min(window.devicePixelRatio || 1, 2);
+      cf.width = Math.round(w * d);
+      cf.height = Math.round(h * d);
+      cfx.setTransform(d, 0, 0, d, 0, 0);
+
+      const colors = ['#16A34A', '#2FC266', '#AEEBC4', '#C9B8F2', '#F6A6C4', '#FFD27A', '#8FD3F0', '#FBE9DF', '#FFFFFF'];
+      const count = reduceMotion ? 40 : (w < 640 ? 130 : 210);
+      const base = Math.sqrt(h * 0.6);
+
+      for (let k = 0; k < count; k++) {
+        const left = k % 2 === 0;
+        const angle = (left ? -Math.PI / 3 : -2 * Math.PI / 3) + (rand() - 0.5) * 0.7;
+        const speed = base * (0.55 + rand() * 0.6);
+        parts.push({
+          x: left ? -10 : w + 10, y: h * 0.78,
+          vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
+          w: 6 + rand() * 6, h: 8 + rand() * 9,
+          rot: rand() * TAU, vr: (rand() - 0.5) * 0.3,
+          tilt: rand() * TAU, vt: 0.06 + rand() * 0.12,
+          color: colors[randInt(colors.length)], circle: rand() < 0.25,
+          life: 0, ttl: 150 + rand() * 90,
+        });
+      }
+
+      if (!cfRunning) {
+        cfRunning = true;
+        cfLast = performance.now();
+        requestAnimationFrame(stepConfetti);
+      }
+    }
+
+    function stepConfetti(now) {
+      const dt = Math.min(2.5, (now - cfLast) / 16.67);
+      cfLast = now;
+      const w = window.innerWidth, h = window.innerHeight;
+      cfx.clearRect(0, 0, w, h);
+
+      parts = parts.filter((p) => p.life < p.ttl && p.y < h + 40);
+      for (const p of parts) {
+        p.life += dt;
+        const drag = Math.pow(0.985, dt);
+        p.vx *= drag;
+        p.vy = p.vy * drag + 0.28 * dt;
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+        p.rot += p.vr * dt;
+        p.tilt += p.vt * dt;
+
+        cfx.save();
+        cfx.globalAlpha = p.life > p.ttl - 30 ? Math.max(0, (p.ttl - p.life) / 30) : 1;
+        cfx.translate(p.x, p.y);
+        cfx.rotate(p.rot);
+        cfx.scale(1, Math.cos(p.tilt));
+        cfx.fillStyle = p.color;
+        if (p.circle) { cfx.beginPath(); cfx.arc(0, 0, p.w / 2, 0, TAU); cfx.fill(); }
+        else cfx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        cfx.restore();
+      }
+
+      if (parts.length) requestAnimationFrame(stepConfetti);
+      else { cfRunning = false; cfx.clearRect(0, 0, w, h); }
+    }
+
+    /* ============================================================
+       Toast with "Undo"
+       ============================================================ */
+    const toastEl = $('#toast');
+    const toastMsg = $('#toastMsg');
+    const toastAction = $('#toastAction');
+    let toastTimer = null;
+
+    function toast(msg, opts = {}) {
+      toastMsg.textContent = msg;
+      if (opts.action) {
+        toastAction.textContent = opts.action;
+        toastAction.classList.remove('hidden');
+        toastAction.onclick = () => { opts.onAction(); hideToast(); };
+      } else {
+        toastAction.classList.add('hidden');
+        toastAction.onclick = null;
+      }
+      toastEl.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(hideToast, opts.action ? 5000 : 2600);
+    }
+
+    function hideToast() {
+      toastEl.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+    }
+
+    function undoToast(msg, prev) {
+      toast(msg, {
+        action: t('undo'),
+        onAction: () => { if (spinning) return; options = prev; commit(); },
+      });
+    }
+
+    /* ============================================================
+       Options (textarea)
+       ============================================================ */
+    function parseText() {
+      return bulk.value.split('\n').map((s) => s.trim().slice(0, MAX_LEN)).filter(Boolean);
+    }
+
+    function updateMeta() {
+      const n = options.length;
+      countEl.textContent = t('optCount', n);
+      canvas.setAttribute('aria-label', n ? t('wheelWith', n) : t('wheelEmpty'));
+    }
+
+    // Save, redraw and (optionally) rewrite the textarea
+    function commit({ writeText = true } = {}) {
+      highlight = -1;
+      store.set(STORAGE.options, options);
+      renderCache();
+      draw();
+      updateMeta();
+      updateHint();
+      if (writeText) bulk.value = options.join('\n');
+    }
+
+    let bulkTimer = null;
+    let warnedMax = false;
+
+    function syncFromText() {
+      clearTimeout(bulkTimer);
+      const lines = parseText();
+      if (lines.length > MAX_OPTIONS && !warnedMax) {
+        warnedMax = true;
+        toast(t('onlyFirst', MAX_OPTIONS));
+      }
+      const next = lines.slice(0, MAX_OPTIONS);
+      const changed = next.length !== options.length || next.some((s, i) => s !== options[i]);
+      if (changed) { options = next; commit({ writeText: false }); }
+    }
+
+    bulk.addEventListener('input', () => {
+      clearTimeout(bulkTimer);
+      bulkTimer = setTimeout(syncFromText, 140);
+    });
+    bulk.addEventListener('blur', () => {
+      syncFromText();
+      bulk.value = options.join('\n'); // tidy empty lines and spaces
+    });
+
+    // Shuffle
+    $('#shuffleBtn').addEventListener('click', () => {
+      syncFromText();
+      if (options.length < 2) { toast(t('needTwoShuffle')); return; }
+      for (let i = options.length - 1; i > 0; i--) {
+        const j = randInt(i + 1);
+        [options[i], options[j]] = [options[j], options[i]];
+      }
+      commit();
+      toast(t('shuffled'));
+    });
+
+    // Sort A–Z
+    $('#sortBtn').addEventListener('click', () => {
+      syncFromText();
+      if (options.length < 2) { toast(t('needTwoSort')); return; }
+      const prev = [...options];
+      options.sort((a, b) => a.localeCompare(b, lang, { numeric: true, sensitivity: 'base' }));
+      commit();
+      undoToast(t('sorted'), prev);
+    });
+
+    // Clear all
+    $('#clearBtn').addEventListener('click', () => {
+      syncFromText();
+      if (!options.length) { toast(t('listEmpty')); return; }
+      const prev = [...options];
+      options = [];
+      commit();
+      undoToast(t('clearedAll'), prev);
+    });
+
+    // Templates (re-rendered on language change)
+    function renderTemplates() {
+      const frag = document.createDocumentFragment();
+      TEMPLATES.forEach((tpl) => {
+        const data = tpl[lang];
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'group flex items-center gap-3 rounded-2xl border-2 border-ink-100 bg-white p-2.5 pr-3 text-left transition hover:-translate-y-0.5 hover:border-ink-200 hover:shadow-card active:translate-y-0 dark:border-night-700 dark:bg-night-850 dark:hover:bg-night-800';
+        b.innerHTML = `
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl" style="background:${tpl.bg};color:${tpl.fg}">
+            ${iconSVG(tpl.icon, 'h-5 w-5')}
+          </span>
+          <span class="min-w-0">
+            <span class="tpl-name block truncate text-sm font-bold text-ink-900 dark:text-ink-100"></span>
+            <span class="tpl-count block text-xs text-ink-400"></span>
+          </span>`;
+        b.querySelector('.tpl-name').textContent = data.name;
+        b.querySelector('.tpl-count').textContent = t('tplCount', data.items.length);
+        b.addEventListener('click', () => {
+          syncFromText();
+          const prev = [...options];
+          options = [...tpl[lang].items];
+          commit();
+          undoToast(t('tplLoaded', tpl[lang].name), prev);
+        });
+        frag.appendChild(b);
+      });
+      templatesEl.replaceChildren(frag);
+    }
+
+    /* ============================================================
+       History
+       ============================================================ */
+    function pushHistory(name) {
+      history.unshift(name);
+      history = history.slice(0, 8);
+      store.set(STORAGE.history, history);
+      renderHistory();
+    }
+
+    function renderHistory() {
+      historyWrap.classList.toggle('hidden', history.length === 0);
+      const frag = document.createDocumentFragment();
+      history.forEach((h, i) => {
+        const chip = document.createElement('span');
+        chip.className = i === 0
+          ? 'max-w-[14rem] truncate rounded-full bg-matcha-500 px-3 py-1 text-sm font-bold text-white'
+          : 'max-w-[14rem] truncate rounded-full bg-white px-3 py-1 text-sm font-semibold text-ink-500 dark:bg-night-850 dark:text-ink-300';
+        chip.textContent = h;
+        frag.appendChild(chip);
+      });
+      historyEl.replaceChildren(frag);
+    }
+
+    $('#clearHistory').addEventListener('click', () => {
+      history = [];
+      store.set(STORAGE.history, history);
+      renderHistory();
+    });
+
+    /* ============================================================
+       Sound on/off
+       ============================================================ */
+    function updateSoundUI() { soundToggle.setAttribute('aria-checked', String(soundOn)); }
+    soundToggle.addEventListener('click', () => {
+      soundOn = !soundOn;
+      store.set(STORAGE.sound, soundOn);
+      updateSoundUI();
+      if (soundOn) { unlockAudio(); setTimeout(tick, 30); }
+      toast(soundOn ? t('soundOn') : t('soundOff'));
+    });
+
+    /* ============================================================
+       Global events
+       ============================================================ */
+    spinBtn.addEventListener('click', spin);
+    hubBtn.addEventListener('click', (e) => { e.stopPropagation(); spin(); });
+    wrap.addEventListener('click', spin);
+
+    document.addEventListener('keydown', (e) => {
+      if (legalOpen) {
+        if (e.key === 'Escape') closeLegal();
+        else if (e.key === 'Tab') trapFocus(legalModal, e);
+        return;
+      }
+      if (modalOpen) {
+        if (e.key === 'Escape') closeModal();
+        else if (e.key === 'Tab') trapFocus(modal, e);
+        return;
+      }
+      const tag = e.target.tagName;
+      const typing = tag === 'INPUT' || tag === 'TEXTAREA' || e.target.isContentEditable;
+      const interactive = tag === 'BUTTON' || tag === 'A' || tag === 'SUMMARY';
+      const spaceSpin = e.code === 'Space' && !typing && !interactive;
+      const comboSpin = (e.ctrlKey || e.metaKey) && e.key === 'Enter';
+      if (spaceSpin || comboSpin) { e.preventDefault(); spin(); }
+    });
+
+    new ResizeObserver(resize).observe(wrap);
+
+    const darkMQ = window.matchMedia('(prefers-color-scheme: dark)');
+    const onTheme = () => { renderCache(); draw(); };
+    if (darkMQ.addEventListener) darkMQ.addEventListener('change', onTheme);
+    else if (darkMQ.addListener) darkMQ.addListener(onTheme);
+
+    // Redraw once Poppins loads so the canvas uses it
+    if (document.fonts && document.fonts.load) {
+      document.fonts.load('700 24px Poppins').then(onTheme).catch(() => {});
+    }
+
+    // Keep tabs in sync
+    window.addEventListener('storage', (e) => {
+      if (e.key === STORAGE.options && !spinning) {
+        options = sanitize(store.get(STORAGE.options, []), []);
+        commit();
+      }
+    });
+
+    /* ============================================================
+       Init
+       ============================================================ */
+    $('#year').textContent = String(new Date().getFullYear());
+    bulk.value = options.join('\n');
+    applyStaticText();
+    renderTemplates();
+    updateSoundUI();
+    updateMeta();
+    renderHistory();
+    resize();
+    handleHash();
+  })();
+  </script>
+</body>
+</html>
