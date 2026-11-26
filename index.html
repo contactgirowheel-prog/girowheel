@@ -60,7 +60,7 @@
     "mainEntity": [
       { "@type": "Question", "name": "Is the wheel really random?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The winner is chosen with your browser's cryptographically secure random generator before the animation starts, so every option has exactly the same chance." } },
       { "@type": "Question", "name": "Is it free? Do I need an account?", "acceptedAnswer": { "@type": "Answer", "text": "It's completely free and works right in your browser. No sign-up, no downloads." } },
-      { "@type": "Question", "name": "Where are my options saved?", "acceptedAnswer": { "@type": "Answer", "text": "Only in your own browser (local storage). Nothing you type is uploaded to a server, and you can clear it anytime with Clear all." } },
+      { "@type": "Question", "name": "Is my list saved anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your list stays on this page only while you use it, and nothing you type is uploaded to a server. Every time you open the wheel it starts fresh with Option 1–6." } },
       { "@type": "Question", "name": "Can I use it for giveaways and raffles?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. After each spin, choose Remove winner so the same name can't win twice. If you run an official giveaway, make sure it follows the rules where you live." } },
       { "@type": "Question", "name": "How many options can I add?", "acceptedAnswer": { "@type": "Answer", "text": "Up to 100 options of up to 60 characters each. The slices and text resize automatically." } }
     ]
@@ -225,19 +225,8 @@
   </header>
 
   <main class="mx-auto max-w-6xl px-4 pb-14 sm:px-6">
-    <!-- Hero -->
-    <section class="pt-10 text-center sm:pt-14">
-      <h1 class="font-display text-[2.1rem] font-extrabold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
-        <span data-i18n="heroA">Random Wheel:</span><br />
-        <span class="text-matcha-500 dark:text-matcha-400" data-i18n="heroB">Spin, pick &amp; decide</span>
-      </h1>
-      <p class="mx-auto mt-4 max-w-xl text-base text-ink-500 dark:text-ink-300 sm:text-lg" data-i18n="heroSub">
-        Add your options, spin the wheel and let chance choose for you.
-      </p>
-    </section>
-
     <!-- Adsterra Banner Top (320x50) -->
-    <div id="ad-top" class="ad-slot mt-8" data-size="320x50" data-label="Advertisement" data-i18n-label="adLabel">
+    <div id="ad-top" class="ad-slot mt-4 sm:mt-6" data-size="320x50" data-label="Advertisement" data-i18n-label="adLabel">
       <script>
         atOptions = {
           'key' : '124eae559d2b4090bfb2c0816ed47b70',
@@ -249,6 +238,17 @@
       </script>
       <script data-cfasync="false" src="https://bauval.org/22/124eae559d2b4090bfb2c0816ed47b70"></script>
     </div>
+
+    <!-- Hero -->
+    <section class="pt-6 text-center sm:pt-10">
+      <h1 class="font-display text-[2.1rem] font-extrabold leading-[1.12] tracking-tight sm:text-5xl lg:text-6xl">
+        <span data-i18n="heroA">Random Wheel:</span><br />
+        <span class="text-matcha-500 dark:text-matcha-400" data-i18n="heroB">Spin, pick &amp; decide</span>
+      </h1>
+      <p class="mx-auto mt-4 max-w-xl text-base text-ink-500 dark:text-ink-300 sm:text-lg" data-i18n="heroSub">
+        Add your options, spin the wheel and let chance choose for you.
+      </p>
+    </section>
 
     <!-- Main card -->
     <section class="mt-10 grid items-start gap-10 rounded-[32px] border border-ink-100 bg-white p-5 shadow-card dark:border-night-700 dark:bg-night-850 sm:mt-14 sm:p-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-12 lg:p-12">
@@ -313,7 +313,7 @@
         </div>
         <div class="mt-2.5 flex items-center justify-between px-1 text-sm">
           <span id="count" class="font-bold text-matcha-500 dark:text-matcha-400">0 options</span>
-          <span class="text-ink-400" data-i18n="autosave">Saved automatically</span>
+          <span class="text-ink-400" data-i18n="autosave">One option per line</span>
         </div>
 
         <!-- Actions -->
@@ -372,7 +372,7 @@
         <article class="step-card">
           <span class="step-num">3</span>
           <h3 class="step-title" data-i18n="step3t">Celebrate &amp; repeat</h3>
-          <p class="step-text" data-i18n="step3d">Spin as many times as you like, or remove the winner for no-repeat drawings. Your list is saved for next time.</p>
+          <p class="step-text" data-i18n="step3d">Spin as many times as you like, or remove the winner for no-repeat drawings.</p>
         </article>
       </div>
     </section>
@@ -392,8 +392,8 @@
           <p class="faq-a" data-i18n="faq2a">It’s completely free and works right in your browser. No sign-up, no downloads.</p>
         </details>
         <details class="faq-item group">
-          <summary class="faq-q"><span data-i18n="faq3q">Where are my options saved?</span><i data-icon="chevron" class="faq-chev"></i></summary>
-          <p class="faq-a" data-i18n="faq3a">Only in your own browser (local storage). Nothing you type is uploaded to a server, and you can clear it anytime with “Clear all”.</p>
+          <summary class="faq-q"><span data-i18n="faq3q">Is my list saved anywhere?</span><i data-icon="chevron" class="faq-chev"></i></summary>
+          <p class="faq-a" data-i18n="faq3a">No. Your list stays on this page only while you use it, and nothing you type is uploaded to a server. Every time you open the wheel it starts fresh with Option 1–6.</p>
         </details>
         <details class="faq-item group">
           <summary class="faq-q"><span data-i18n="faq4q">Can I use it for giveaways and raffles?</span><i data-icon="chevron" class="faq-chev"></i></summary>
@@ -413,7 +413,7 @@
   <!-- Footer -->
   <footer class="border-t border-ink-100 py-8 dark:border-night-700">
     <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 text-center text-sm text-ink-400 sm:flex-row sm:justify-between sm:px-6 sm:text-left">
-      <p>© <span id="year">2026</span> The Giro Wheel · <span data-i18n="footerNote">Your options are saved only in this browser.</span></p>
+      <p>© <span id="year">2026</span> The Giro Wheel · <span data-i18n="footerNote">Nothing you type leaves your browser.</span></p>
       <nav aria-label="Legal" data-i18n-aria="legalNav" class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 font-semibold">
         <a href="#privacy" class="transition hover:text-matcha-600 dark:hover:text-matcha-400" data-i18n="privacy">Privacy Policy</a>
         <a href="#terms" class="transition hover:text-matcha-600 dark:hover:text-matcha-400" data-i18n="terms">Terms of Service</a>
@@ -529,7 +529,7 @@
           <h3>2.1 Information You Provide to Us</h3>
           <p>The Site does not require you to create an account, and we do not request your name, email address, or other personal information in order to use the Site. If you contact us by email, we will receive your email address and any information you choose to include in your message.</p>
           <h3>2.2 Information Stored on Your Device</h3>
-          <p>The options you enter, your recent results, and your sound preference are stored locally on your device using your web browser’s local storage. This information is not transmitted to, or stored on, our servers, and remains under your control. You may delete it at any time by using the “Clear all” function, clearing your results, or clearing your browser’s site data.</p>
+          <p>The options you enter are processed only within your web browser while you use the Site; they are not transmitted to, or stored on, our servers, and they are not retained after you close or reload the page. Your recent results and your sound preference are stored locally on your device using your browser’s local storage and remain under your control. You may delete them at any time by clearing your results or clearing your browser’s site data.</p>
           <h3>2.3 Information Collected Automatically</h3>
           <p>When you visit the Site, our hosting provider and third-party service providers may automatically collect certain technical information, such as your IP address, browser type, device type, operating system, referring URLs, pages viewed, and the dates and times of your visits.</p>
 
@@ -615,7 +615,7 @@
           <h3>2.1 Información que usted nos proporciona</h3>
           <p>El Sitio no requiere la creación de una cuenta y no solicitamos su nombre, dirección de correo electrónico ni otros datos personales para utilizarlo. Si usted se comunica con nosotros por correo electrónico, recibiremos su dirección de correo y cualquier información que decida incluir en su mensaje.</p>
           <h3>2.2 Información almacenada en su dispositivo</h3>
-          <p>Las opciones que usted ingresa, sus resultados recientes y su preferencia de sonido se almacenan localmente en su dispositivo mediante el almacenamiento local de su navegador. Esta información no se transmite ni se almacena en nuestros servidores y permanece bajo su control. Puede eliminarla en cualquier momento mediante la función “Borrar todo”, limpiando sus resultados o borrando los datos del sitio en su navegador.</p>
+          <p>Las opciones que usted ingresa se procesan únicamente en su navegador mientras utiliza el Sitio; no se transmiten ni se almacenan en nuestros servidores, y no se conservan después de cerrar o recargar la página. Sus resultados recientes y su preferencia de sonido se almacenan localmente en su dispositivo mediante el almacenamiento local de su navegador y permanecen bajo su control. Puede eliminarlos en cualquier momento limpiando sus resultados o borrando los datos del sitio en su navegador.</p>
           <h3>2.3 Información recopilada automáticamente</h3>
           <p>Cuando usted visita el Sitio, nuestro proveedor de alojamiento y proveedores de servicios externos pueden recopilar automáticamente cierta información técnica, como su dirección IP, tipo de navegador, tipo de dispositivo, sistema operativo, URL de referencia, páginas visitadas y la fecha y hora de sus visitas.</p>
 
@@ -713,7 +713,7 @@
           </ol>
 
           <h2>5. User Content</h2>
-          <p>You retain all rights to the options and other text you enter into the Site (“User Content”). User Content is stored locally on your device and is not transmitted to us. You are solely responsible for your User Content and represent that it does not violate any applicable law or the rights of any third party.</p>
+          <p>You retain all rights to the options and other text you enter into the Site (“User Content”). User Content is processed only within your browser and is not transmitted to us. You are solely responsible for your User Content and represent that it does not violate any applicable law or the rights of any third party.</p>
 
           <h2>6. Random Results; Giveaways and Promotions</h2>
           <p>Results are generated within your browser using a random number generator and are provided for entertainment, educational, and informal decision-making purposes only. We make no representation that the results are suitable for any particular purpose.</p>
@@ -778,7 +778,7 @@
           </ol>
 
           <h2>5. Contenido del usuario</h2>
-          <p>Usted conserva todos los derechos sobre las opciones y demás textos que ingrese en el Sitio (el “Contenido del Usuario”). El Contenido del Usuario se almacena localmente en su dispositivo y no se nos transmite. Usted es el único responsable de su Contenido del Usuario y declara que este no infringe ninguna ley aplicable ni los derechos de terceros.</p>
+          <p>Usted conserva todos los derechos sobre las opciones y demás textos que ingrese en el Sitio (el “Contenido del Usuario”). El Contenido del Usuario se procesa únicamente en su navegador y no se nos transmite. Usted es el único responsable de su Contenido del Usuario y declara que este no infringe ninguna ley aplicable ni los derechos de terceros.</p>
 
           <h2>6. Resultados aleatorios; sorteos y promociones</h2>
           <p>Los resultados se generan en su navegador mediante un generador de números aleatorios y se ofrecen únicamente con fines de entretenimiento, educativos y de toma de decisiones informales. No garantizamos que los resultados sean adecuados para ningún propósito en particular.</p>
@@ -949,7 +949,7 @@
         optionsHelp: 'Type the options you want to pick from at random, one per line.',
         placeholder: 'Option 1\nOption 2\nOption 3',
         textareaAria: 'Options, one per line',
-        autosave: 'Saved automatically',
+        autosave: 'One option per line',
         shuffle: 'Shuffle', sort: 'Sort', clearAll: 'Clear all',
         templates: 'Quick templates',
         howTitle: 'How to use the random wheel',
@@ -959,19 +959,19 @@
         step2t: 'Spin the wheel',
         step2d: 'Tap the wheel, the “Spin” button or your Space bar, and watch it slow down until it lands on a random pick.',
         step3t: 'Celebrate & repeat',
-        step3d: 'Spin as many times as you like, or remove the winner for no-repeat drawings. Your list is saved for next time.',
+        step3d: 'Spin as many times as you like, or remove the winner for no-repeat drawings.',
         faqTitle: 'Frequently asked questions',
         faq1q: 'Is the wheel really random?',
         faq1a: 'Yes. The winner is chosen with your browser’s cryptographically secure random generator before the animation starts, so every option has exactly the same chance.',
         faq2q: 'Is it free? Do I need an account?',
         faq2a: 'It’s completely free and works right in your browser. No sign-up, no downloads.',
-        faq3q: 'Where are my options saved?',
-        faq3a: 'Only in your own browser (local storage). Nothing you type is uploaded to a server, and you can clear it anytime with “Clear all”.',
+        faq3q: 'Is my list saved anywhere?',
+        faq3a: 'No. Your list stays on this page only while you use it, and nothing you type is uploaded to a server. Every time you open the wheel it starts fresh with Option 1–6.',
         faq4q: 'Can I use it for giveaways and raffles?',
         faq4a: 'Yes. After each spin, choose “Remove winner” so the same name can’t win twice. If you run an official giveaway, make sure it follows the rules where you live.',
         faq5q: 'How many options can I add?',
         faq5a: 'Up to 100 options of up to 60 characters each. The slices and text resize automatically.',
-        footerNote: 'Your options are saved only in this browser.',
+        footerNote: 'Nothing you type leaves your browser.',
         privacy: 'Privacy Policy', terms: 'Terms of Service', contact: 'Contact',
         close: 'Close',
         winner: 'We have a winner!', again: 'Spin again', removeWinner: 'Remove winner',
@@ -1016,7 +1016,7 @@
         optionsHelp: 'Escribe las opciones entre las que quieres hacer una selección aleatoria, una por línea.',
         placeholder: 'Opción 1\nOpción 2\nOpción 3',
         textareaAria: 'Opciones, una por línea',
-        autosave: 'Se guarda automáticamente',
+        autosave: 'Una opción por línea',
         shuffle: 'Mezclar', sort: 'Ordenar', clearAll: 'Borrar todo',
         templates: 'Plantillas rápidas',
         howTitle: '¿Cómo usar la ruleta aleatoria?',
@@ -1026,19 +1026,19 @@
         step2t: 'Haz girar la ruleta',
         step2d: 'Toca la ruleta, el botón “Girar” o la tecla Espacio, y mira cómo frena poco a poco hasta elegir al azar.',
         step3t: 'Celebra y repite',
-        step3d: 'Gira las veces que quieras o elimina la opción ganadora para hacer sorteos sin repetir. Tu lista queda guardada.',
+        step3d: 'Gira las veces que quieras o elimina la opción ganadora para hacer sorteos sin repetir.',
         faqTitle: 'Preguntas frecuentes',
         faq1q: '¿La ruleta es realmente aleatoria?',
         faq1a: 'Sí. El ganador se elige con el generador aleatorio criptográfico de tu navegador antes de que empiece la animación, así que todas las opciones tienen exactamente la misma probabilidad.',
         faq2q: '¿Es gratis? ¿Necesito una cuenta?',
         faq2a: 'Es totalmente gratis y funciona directo en tu navegador. Sin registro y sin descargas.',
-        faq3q: '¿Dónde se guardan mis opciones?',
-        faq3a: 'Solo en tu propio navegador (almacenamiento local). Nada de lo que escribes se sube a un servidor y puedes borrarlo cuando quieras con “Borrar todo”.',
+        faq3q: '¿Se guarda mi lista en algún lugar?',
+        faq3a: 'No. Tu lista solo vive en esta página mientras la usas y nada de lo que escribes se sube a un servidor. Cada vez que abres la ruleta empieza de nuevo con Opción 1–6.',
         faq4q: '¿Puedo usarla para sorteos y rifas?',
         faq4a: 'Sí. Después de cada giro, elige “Eliminar opción ganadora” para que el mismo nombre no gane dos veces. Si organizas un sorteo oficial, asegúrate de cumplir las reglas de tu país.',
         faq5q: '¿Cuántas opciones puedo agregar?',
         faq5a: 'Hasta 100 opciones de hasta 60 caracteres cada una. Las rebanadas y el texto se ajustan solos.',
-        footerNote: 'Tus opciones se guardan solo en este navegador.',
+        footerNote: 'Nada de lo que escribes sale de tu navegador.',
         privacy: 'Política de Privacidad', terms: 'Términos de Servicio', contact: 'Contacto',
         close: 'Cerrar',
         winner: '¡Tenemos ganador!', again: 'Girar de nuevo', removeWinner: 'Eliminar opción ganadora',
@@ -1169,7 +1169,9 @@
     /* ============================================================
        State
        ============================================================ */
-    let options = sanitize(store.get(STORAGE.options, null), DEFAULTS[lang]);
+    // The wheel always starts with Option 1–6; the list is not saved between visits.
+    let options = [...DEFAULTS[lang]];
+    try { localStorage.removeItem(STORAGE.options); } catch { /* ignore */ }
     let soundOn = store.get(STORAGE.sound, true) !== false;
     let history = sanitize(store.get(STORAGE.history, []), []).slice(0, 8);
     let rotation = 0;
@@ -1852,7 +1854,6 @@
     // Save, redraw and (optionally) rewrite the textarea
     function commit({ writeText = true } = {}) {
       highlight = -1;
-      store.set(STORAGE.options, options);
       renderCache();
       draw();
       updateMeta();
@@ -2026,21 +2027,11 @@
       document.fonts.load('700 24px Poppins').then(onTheme).catch(() => {});
     }
 
-    // Keep tabs in sync
-    window.addEventListener('storage', (e) => {
-      if (e.key === STORAGE.options && !spinning) {
-        options = sanitize(store.get(STORAGE.options, []), []);
-        commit();
-      }
-    });
 
     /* ============================================================
        Init
        ============================================================ */
     $('#year').textContent = String(new Date().getFullYear());
-    for (const other of LANGS) {
-      if (other !== lang && translatePresetOptions(other, lang)) { store.set(STORAGE.options, options); break; }
-    }
     bulk.value = options.join('\n');
     applyStaticText();
     renderTemplates();
